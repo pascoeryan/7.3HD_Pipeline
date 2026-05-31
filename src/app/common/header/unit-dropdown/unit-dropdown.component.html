@@ -1,0 +1,79 @@
+<div class="flex items-center">
+  @if (unit) {
+    <f-unit-code
+      [isDropdown]="true"
+      [shiftBetweenBadges]="false"
+      [width]="80"
+      [unit_code]="unit?.code"
+      matTooltip="{{ unit.name }}"
+      [matMenuTriggerFor]="menu"
+      #menuState="matMenuTrigger"
+    >
+      <mat-icon>{{ menuState.menuOpen ? 'arrow_drop_up' : 'arrow_drop_down' }} </mat-icon>
+    </f-unit-code>
+  }
+  @if (!unit) {
+    <button mat-button [matMenuTriggerFor]="menu" #menuState="matMenuTrigger">
+      <span class="flex items-center">
+        <span>Select Unit</span>
+        <mat-icon>{{ menuState.menuOpen ? 'arrow_drop_up' : 'arrow_drop_down' }} </mat-icon>
+      </span>
+    </button>
+  }
+</div>
+
+<mat-menu #menu="matMenu" class="unit-dropdown-menu">
+  @if (media.isActive('xs')) {
+    <button uiSref="home" mat-menu-item>
+      <mat-icon
+        uiSref="home"
+        style="margin-right: 20px"
+        svgIcon="formatif-logo"
+        class="formatif-icon"
+        aria-label="Home Icon"
+      ></mat-icon>
+      <div class="unitName">Home</div>
+      <span class="flex-grow"></span>
+    </button>
+  }
+  @if (media.isActive('xs')) {
+    <mat-divider></mat-divider>
+  }
+
+  <h2 mat-subheader [hidden]="unitRoles?.length === 0" class="my-3 ml-6">Units you teach</h2>
+  @for (unitRole of unitRoles; track unitRole) {
+    @if (!unitRole.unit.teachingPeriod || unitRole.unit.teachingPeriod?.active) {
+      <div
+        uiSref="units/tasks/inbox"
+        [uiParams]="{unitId: unitRole.unit.id}"
+        mat-menu-item
+        class="w-full"
+      >
+        <div class="flex items-center w-full">
+          <div class="flex-none unitName truncate max-w-[220px]">{{ unitRole.unit.name }}</div>
+          <div class="grow"></div>
+          <f-unit-code [width]="80" [unit_code]="unitRole.unit.code"></f-unit-code>
+        </div>
+      </div>
+    }
+  }
+
+  <mat-divider [hidden]="unitRoles?.length === 0 || projects?.length === 0"></mat-divider>
+  <h2 mat-subheader [hidden]="projects?.length === 0" class="my-3 ml-6">Units you study</h2>
+  @for (project of projects; track project) {
+    @if (!project.unit.teachingPeriod || project.unit.teachingPeriod.active) {
+      <button
+        uiSref="projects/dashboard"
+        [uiParams]="{projectId: project.id, taskAbbr: ''}"
+        class="flex items-center mb-2"
+        mat-menu-item
+      >
+        <span class="flex flex-row border-box">
+          <div class="unitName">{{ project.unit.name }}</div>
+          <span class="flex-1 border-box"></span>
+          <f-unit-code [width]="80" [unit_code]="project.unit.code"></f-unit-code>
+        </span>
+      </button>
+    }
+  }
+</mat-menu>

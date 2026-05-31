@@ -1,0 +1,10 @@
+<mat-form-field floatLabel="never" class="data-entry" appearance="outline">
+  <mat-select [(value)]="student.campus" (selectionChange)="campusChange($event)">
+    <mat-option [value]="null">None</mat-option>
+    @for (campus of campuses; track campus) {
+      <mat-option [value]="campus">
+        {{ campus.name }}
+      </mat-option>
+    }
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,28 @@
+
+
+#audioDiscussionTemplate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host mat-divider {
+  position: absolute;
+  bottom: 15%;
+}
+
+.mat-mdc-progress-spinner circle,
+.mat-mdc-progress-spinner circle {
+  stroke: white;
+}
+
+#button-wrapper {
+  position: absolute;
+  right: 12px;
+}
+
+#audio-recorder-visualiser.audio-visualiser {
+  height: 22px;
+  margin-left: 16px;
+  margin-right: 46px;
+}

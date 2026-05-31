@@ -1,0 +1,21 @@
+@import '../../../../styles/common/hero-sidebar-layout.scss';
+
+.sign-in-form {
+  section {
+    padding: 8px;
+  }
+  .form-field {
+    margin: 5px;
+  }
+}
+
+.subcontainer {
+  overflow-y: hidden;
+}
+
+/* Custom CSS for overriding md breakpoint */
+@media (min-width: 960px) {
+  .custom-md-h-screen {
+    height: 100vh !important;
+  }
+}

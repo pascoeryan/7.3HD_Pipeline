@@ -1,0 +1,146 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-formatif: (
+  50: #e7e7ff,
+  100: #c4c4ff,
+  200: #9c9cff,
+  300: #7474ff,
+  400: #5757ff,
+  500: #3939ff,
+  600: #3333ff,
+  700: #2c2cff,
+  800: #2424ff,
+  900: #1717ff,
+  A100: #ffffff,
+  A200: #fcfcff,
+  A400: #c9c9ff,
+  A700: #b0b0ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$md-formatif-accent: (
+  50: #e8f2fe,
+  100: #c6dffc,
+  200: #a0cafa,
+  300: #7ab4f7,
+  400: #5ea4f6,
+  500: #4194f4,
+  600: #3b8cf3,
+  700: #3281f1,
+  800: #2a77ef,
+  900: #1c65ec,
+  A100: #ffffff,
+  A200: #edf3ff,
+  A400: #bad0ff,
+  A700: #a1bfff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$md-formatif-warn: (
+  50: #fde9e9,
+  100: #fac7c7,
+  200: #f7a2a2,
+  300: #f47c7c,
+  400: #f16060,
+  500: #ef4444,
+  600: #ed3e3e,
+  700: #eb3535,
+  800: #e82d2d,
+  900: #e41f1f,
+  A100: #ffffff,
+  A200: #ffe7e7,
+  A400: #ffb4b4,
+  A700: #ff9b9b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$font-family-primary: "'Grotesk'";
+$font-family-accent: "Inter, 'open-sans', 'Roboto'";
+
+$mat-typography-primary-config: mat.define-typography-config(
+  $headline-1: mat.define-typography-level(112px, 112px, 300, $font-family-primary, $letter-spacing: -0.05em),
+  $headline-2: mat.define-typography-level(56px, 56px, 400, $font-family-primary, $letter-spacing: -0.02em),
+  $headline-3: mat.define-typography-level(45px, 48px, 400, $font-family-primary, $letter-spacing: -0.005em),
+  $headline-4: mat.define-typography-level(34px, 40px, 400, $font-family-primary),
+  $headline-5: mat.define-typography-level(24px, 32px, 400, $font-family-primary),
+  $headline-6: mat.define-typography-level(20px, 32px, 500, $font-family-primary),
+  $subtitle-1: mat.define-typography-level(16px, 28px, 400, $font-family-primary),
+  $body-1: mat.define-typography-level(15px, 24px, 400, $font-family-accent),
+  $subtitle-2: mat.define-typography-level(14px, 24px, 500, $font-family-accent),
+  $body-2: mat.define-typography-level(14px, 20px, 400, $font-family-accent),
+  $caption: mat.define-typography-level(12px, 20px, 400, $font-family-accent),
+  $button: mat.define-typography-level(14px, 14px, 500, $font-family-accent),
+);
+$primary: mat.define-palette($md-formatif);
+$accent: mat.define-palette($md-formatif-accent);
+$warn: mat.define-palette($md-formatif-warn);
+
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+    typography: $mat-typography-primary-config,
+  )
+);
+
+$color-config: mat.get-color-config($theme);
+$primary-palette: map.get($color-config, 'primary');
+$primary-color: mat.get-color-from-palette($primary-palette, 500);
+$accent-palette: map.get($color-config, 'accent');
+$warn-palette: map.get($color-config, 'warn');
+$is-dark-theme: map.get($color-config, 'is-dark');
+
+@include mat.all-component-typographies($theme);
+@include mat.all-component-themes($theme);
