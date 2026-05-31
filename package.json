@@ -85,6 +85,7 @@
     "ngx-entity-service": "^0.0.39",
     "ngx-lottie": "^11.0.2",
     "nvd3": "1.8.6",
+    "pdfjs-dist": "^3.11.174",
     "rxjs": "~7.4.0",
     "ts-md5": "^1.3.1",
     "tslib": "^2.6.2",
