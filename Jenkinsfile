@@ -28,9 +28,17 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci || npm install'
+                echo 'Installing dependencies with pdfjs-dist override...'
+                sh 'npm install pdfjs-dist@3.11.174 --save-exact --force'
+                sh 'npm ci'
+            }
+            post {
+                failure {
+                    echo 'Dependency installation failed'
+                }
             }
         }
+        }"pdfjs-dist": "4.0.379",
 
         stage('Build Application (ARTIFACT GENERATION)') {
             steps {

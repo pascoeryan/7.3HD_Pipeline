@@ -80,12 +80,12 @@
     "ng-csv": "0.2.3",
     "ng-file-upload": "~5.0.9",
     "ng-flex-layout": "^17.3.4-beta.1",
-    "ng2-pdf-viewer": "^10.0",
+    "ng2-pdf-viewer": "^10.4.0",
     "ngx-bootstrap": "^6.1.0",
     "ngx-entity-service": "^0.0.39",
     "ngx-lottie": "^11.0.2",
     "nvd3": "1.8.6",
-    "pdfjs-dist": "^3.11.174",
+    "pdfjs-dist": "4.0.379",
     "rxjs": "~7.4.0",
     "ts-md5": "^1.3.1",
     "tslib": "^2.6.2",
@@ -159,7 +159,7 @@
     "sass": "^1.48.0",
     "tailwindcss": "~3.3",
     "ts-node": "~10.9",
-    "typescript": "~5.2",
+    "typescript": "5.4",
     "underscore": "^1.8.3"
   },
   "optionalDependencies": {
