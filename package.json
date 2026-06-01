@@ -87,7 +87,7 @@
     "nvd3": "1.8.6",
     "pdfjs-dist": "4.0.379",
     "rxjs": "~7.4.0",
-    "ts-md5": "^1.3.1",
+    "ts-md5": "^2.0.1",
     "tslib": "^2.6.2",
     "underscore.string": "2.3.3",
     "zone.js": "~0.14"
