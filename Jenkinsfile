@@ -40,8 +40,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo '🐳 Building Docker production image...'
-                sh 'sudo docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
-                sh 'sudo docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
+                sh 'docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
+                sh 'docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
              }
         }
 
@@ -50,7 +50,7 @@ pipeline {
                 echo '📦 Creating artifacts...'
                 sh 'mkdir -p artifact'
                 sh 'cp -r dist artifact/ || true'
-                sh 'sudo docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
+                sh 'docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
                 sh 'tar -czf build-${BUILD_VERSION}.tar.gz artifact'
             }
         }
