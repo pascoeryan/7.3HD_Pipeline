@@ -37,14 +37,21 @@ pipeline {
             }
         }
         
+        stage('Build Docker Image') {
+            steps {
+                echo '🐳 Building Docker production image...'
+                sh 'docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
+                sh 'docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
+             }
+        }
+
         stage('Create Build Artifact') {
             steps {
-                sh '''
-                    echo "📦 Packaging build artifact..."
-                    mkdir -p artifact
-                    cp -r dist artifact/ || true
-                    tar -czf build-${BUILD_VERSION}.tar.gz artifact
-                '''
+                echo '📦 Creating artifacts...'
+                sh 'mkdir -p artifact'
+                sh 'cp -r dist artifact/ || true'
+                sh 'docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
+                sh 'tar -czf build-${BUILD_VERSION}.tar.gz artifact'
             }
         }
         
