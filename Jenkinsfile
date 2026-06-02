@@ -50,7 +50,7 @@ pipeline {
                 echo '📦 Creating artifacts...'
                 sh 'mkdir -p artifact'
                 sh 'cp -r dist artifact/ || true'
-                sh 'docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
+                sh 'sudo docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
                 sh 'tar -czf build-${BUILD_VERSION}.tar.gz artifact'
             }
         }
