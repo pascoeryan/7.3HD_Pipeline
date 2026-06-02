@@ -40,8 +40,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo '🐳 Building Docker production image...'
-                sh 'docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
-                sh 'docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
+                sh 'sudo docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
+                sh 'sudo docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
              }
         }
 
