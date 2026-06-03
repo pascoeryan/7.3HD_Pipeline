@@ -53,7 +53,7 @@ pipeline {
                     sh '''
                         npx sonarqube-scanner \
                             -Dsonar.organization=pascoeryan \
-                            -Dsonar.projectKey=doubtfire-web \
+                            -Dsonar.projectKey=7.3HD_Pipeline \
                             -Dsonar.host.url=https://sonarcloud.io \
                             -Dsonar.token=${SONAR_TOKEN}
                     '''
