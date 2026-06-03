@@ -45,6 +45,20 @@ pipeline {
              }
         }
 
+        stage('Code Quality - SonarCloud') {
+            steps {
+                withCredentials([string(credentialsId: 'sonarcloud-token', variable: 'SONAR_TOKEN')]) {
+                    sh '''
+                        sonar-scanner \
+                            -Dsonar.organization=pascoeryan \
+                            -Dsonar.projectKey=doubtfire-web \
+                            -Dsonar.host.url=https://sonarcloud.io \
+                            -Dsonar.token=${SONAR_TOKEN}
+                    '''
+                }
+            }
+        }
+
         stage('Create Build Artifact') {
             steps {
                 echo '📦 Creating artifacts...'
