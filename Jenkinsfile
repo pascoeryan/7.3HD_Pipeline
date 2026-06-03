@@ -51,19 +51,7 @@ pipeline {
         
                 withCredentials([string(credentialsId: 'sonarcloud-token', variable: 'SONAR_TOKEN')]) {
                     sh '''
-                        echo "Setting up SonarScanner..."
-                
-                        # Clean previous download if it exists
-                        rm -rf $HOME/.sonar
-                
-                        # Download
-                        curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux-x64.zip
-                
-                        # Extract
-                        unzip -o sonar-scanner.zip
-                
-                        # Run analysis
-                        ./sonar-scanner-5.0.1.3006-linux-x64/bin/sonar-scanner \
+                        npx sonarqube-scanner \
                             -Dsonar.organization=pascoeryan \
                             -Dsonar.projectKey=doubtfire-web \
                             -Dsonar.host.url=https://sonarcloud.io \
