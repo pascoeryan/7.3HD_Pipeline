@@ -47,6 +47,19 @@ pipeline {
 
         stage('Code Quality - SonarCloud') {
             steps {
+                echo '🔍 Running SonarCloud Code Quality Analysis...'
+        
+                // Install sonar-scanner
+                sh '''
+                    if ! command -v sonar-scanner > /dev/null; then
+                        echo "Installing SonarScanner..."
+                        curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip \
+                            https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux-x64.zip
+                        unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+                        export PATH=$HOME/.sonar/sonar-scanner-5.0.1.3006-linux-x64/bin:$PATH
+                    fi
+                '''
+        
                 withCredentials([string(credentialsId: 'sonarcloud-token', variable: 'SONAR_TOKEN')]) {
                     sh '''
                         sonar-scanner \
