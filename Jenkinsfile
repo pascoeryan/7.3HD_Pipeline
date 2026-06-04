@@ -39,17 +39,20 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo '🧪 Running Unit Tests...'
+                echo '🧪 Running Unit Tests (Existing Karma + Jasmine Suite)...'
         
-                // Simple test run without coverage to avoid reporter issues
-                sh 'npm run test -- --watch=false --browsers=ChromeHeadless'
+                // Run existing tests only - most stable option
+                sh 'npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage=false'
             }
             post {
+                always {
+                    archiveArtifacts artifacts: 'coverage/**', fingerprint: true, allowEmptyArchive: true
+                }
                 success {
-                    echo "✅ Tests completed successfully"
+                    echo "✅ Test stage completed successfully"
                 }
                 failure {
-                    echo "❌ Test stage failed"
+                    echo "⚠️ Test stage had issues"
                 }
             }
         }
