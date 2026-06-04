@@ -1,6 +1,6 @@
 // Edge cases and error handling tests for OnTrack dashboard (submission and deadline handling)
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProjectDashboardComponent } from './project-dashboard.component';
+import { ProjectDashboardComponent } from './project-progress-dashboard.coffee';
 
 describe('ProjectDashboardComponent - Edge Cases', () => {
   let component: ProjectDashboardComponent;

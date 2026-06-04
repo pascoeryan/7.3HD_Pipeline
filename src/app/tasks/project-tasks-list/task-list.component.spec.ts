@@ -1,6 +1,6 @@
 // Unit tests for TaskListComponent
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TaskListComponent } from './task-list.component';
+import { TaskListComponent } from './project-tasks-list.coffee';
 
 describe('TaskListComponent', () => {
   let component: TaskListComponent;

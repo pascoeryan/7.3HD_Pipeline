@@ -1,6 +1,6 @@
 // Project service unit test
 import { TestBed } from '@angular/core/testing';
-import { ProjectService } from './project.service';
+import { ProjectService } from './services.coffee';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ProjectService', () => {
