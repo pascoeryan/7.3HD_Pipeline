@@ -65,23 +65,25 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                echo '🔒 Running Security Analysis...'
-
-                // NPM Audit for dependencies
-                sh 'npm audit --audit-level=moderate || echo "Some moderate+ vulnerabilities found"'
-
-                // Trivy scan on the Docker image (strong visual for report)
+                echo '🔒 Running Security Analysis (npm audit + Trivy)...'
+        
+                // 1. NPM Audit
+                sh 'npm audit --audit-level=moderate > npm-audit-report.txt || echo "Vulnerabilities found"'
+        
+                // 2. Trivy Docker Image Scan (HIGH + CRITICAL)
                 sh '''
-                    echo "Scanning Docker image for vulnerabilities..."
                     docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
                         --severity HIGH,CRITICAL \
                         --format table \
-                        --exit-code 0 || echo "Trivy scan completed"
+                        --output trivy-report.txt || echo "Trivy scan completed with issues"
                 '''
             }
             post {
                 always {
-                    echo "Security scanning completed"
+                    archiveArtifacts artifacts: 'npm-audit-report.txt, trivy-report.txt', fingerprint: true, allowEmptyArchive: true
+                }
+                success {
+                    echo "✅ Security scan completed"
                 }
             }
         }
