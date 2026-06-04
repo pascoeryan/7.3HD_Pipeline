@@ -74,7 +74,7 @@ pipeline {
                 // Trivy Docker Scan - with better error handling
                 sh '''
                     echo "Scanning Docker image with Trivy..."
-                    docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
+                    sudo docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
                         --severity HIGH,CRITICAL \
                         --format table \
                         --output trivy-report.txt || echo "Trivy scan completed with warnings"
