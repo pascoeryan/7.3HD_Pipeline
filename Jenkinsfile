@@ -39,19 +39,18 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo '🧪 Running Unit, Integration, and Edge Case Tests with Coverage...'
+                echo '🧪 Running Unit, Integration, and Edge Case Tests using Karma and Jasmine...'
         
-                // Run tests with coverage
+                // Run existing tests only (safer approach)
                 sh 'npm run test -- --code-coverage --watch=false --browsers=ChromeHeadless'
-
             }
             post {
                 always {
-                    // Archive coverage report using Karma
+                    // Archive coverage report if it exists
                     archiveArtifacts artifacts: 'coverage/**', fingerprint: true, allowEmptyArchive: true
                 }
                 success {
-                    echo "✅ All tests passed successfully"
+                    echo "✅ Tests completed successfully"
                 }
                 failure {
                     echo "❌ Test stage failed"
