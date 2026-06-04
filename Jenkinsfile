@@ -39,13 +39,11 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo '🧪 Running Unit + Integration Tests with Coverage...'
+                echo '🧪 Running Unit, Integration, and Edge Case Tests with Coverage...'
         
                 // Run tests with coverage
                 sh 'npm run test -- --code-coverage --watch=false --browsers=ChromeHeadless'
-        
-                // Run specific important test suites (unit, integration, and edge case tests)
-                sh 'npm run test -- --include=**/project*.spec.ts,**/*service*.spec.ts'
+
             }
             post {
                 always {
