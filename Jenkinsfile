@@ -39,15 +39,12 @@ pipeline {
         
         stage('Test') {
             steps {
-                echo '🧪 Running Unit Tests (Existing Test Suite)...'
+                echo '🧪 Running Unit Tests...'
         
-                // Run tests while excluding the new files that are causing errors
-                sh 'npm run test -- --code-coverage --watch=false --browsers=ChromeHeadless --exclude=**/unit.service.spec.ts,**/*dashboard*.spec.ts'
+                // Simple test run without coverage to avoid reporter issues
+                sh 'npm run test -- --watch=false --browsers=ChromeHeadless'
             }
             post {
-                always {
-                    archiveArtifacts artifacts: 'coverage/**', fingerprint: true, allowEmptyArchive: true
-                    }
                 success {
                     echo "✅ Tests completed successfully"
                 }
