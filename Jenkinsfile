@@ -40,8 +40,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo '🐳 Building Docker production image...'
-                sh 'docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
-                sh 'docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
+                sh 'sudo docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
+                sh 'sudo docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
              }
         }
 
@@ -74,7 +74,7 @@ pipeline {
                 // Trivy Docker Scan - with better error handling
                 sh '''
                     echo "Scanning Docker image with Trivy..."
-                    docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
+                    sudo docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
                         --severity HIGH,CRITICAL \
                         --format table \
                         --output trivy-report.txt || echo "Trivy scan completed with warnings"
@@ -95,7 +95,7 @@ pipeline {
                 echo '📦 Creating artifacts...'
                 sh 'mkdir -p artifact'
                 sh 'cp -r dist artifact/ || true'
-                sh 'docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
+                sh 'sudo docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
                 sh 'tar -czf build-${BUILD_VERSION}.tar.gz artifact'
             }
         }
