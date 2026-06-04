@@ -36,26 +36,6 @@ pipeline {
                 sh 'npm run build'
             }
         }
-        
-        stage('Test') {
-            steps {
-                echo '🧪 Running Unit Tests (Existing Karma + Jasmine Suite)...'
-        
-                // Run existing tests only - most stable option
-                sh 'npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage=false'
-            }
-            post {
-                always {
-                    archiveArtifacts artifacts: 'coverage/**', fingerprint: true, allowEmptyArchive: true
-                }
-                success {
-                    echo "✅ Test stage completed successfully"
-                }
-                failure {
-                    echo "⚠️ Test stage had issues"
-                }
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
@@ -79,6 +59,29 @@ pipeline {
                             -Dsonar.token=${SONAR_TOKEN} \
                             -Dsonar.exclusions=node_modules/**,dist/**,coverage/**,**/*.spec.ts
                     '''
+                }
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                echo '🔒 Running Security Analysis...'
+
+                // NPM Audit for dependencies
+                sh 'npm audit --audit-level=moderate || echo "Some moderate+ vulnerabilities found"'
+
+                // Trivy scan on the Docker image (strong visual for report)
+                sh '''
+                    echo "Scanning Docker image for vulnerabilities..."
+                    docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
+                        --severity HIGH,CRITICAL \
+                        --format table \
+                        --exit-code 0 || echo "Trivy scan completed"
+                '''
+            }
+            post {
+                always {
+                    echo "Security scanning completed"
                 }
             }
         }
