@@ -37,6 +37,30 @@ pipeline {
             }
         }
         
+        stage('Test') {
+            steps {
+                echo '🧪 Running Unit + Integration Tests with Coverage...'
+        
+                // Run tests with coverage
+                sh 'npm run test -- --code-coverage --watch=false --browsers=ChromeHeadless'
+        
+                // Optional: Run specific important test suites
+                sh 'npm run test -- --include=**/project*.spec.ts,**/*service*.spec.ts'
+            }
+            post {
+                always {
+                    junit '**/test-results/*.xml'           // if configured
+                    archiveArtifacts artifacts: 'coverage/**', fingerprint: true
+                }
+                success {
+                    echo "✅ All tests passed successfully"
+                }
+                failure {
+                    echo "❌ Test stage failed"
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 echo '🐳 Building Docker production image...'
@@ -56,7 +80,8 @@ pipeline {
                             -Dsonar.projectKey=7.3HD_Pipeline \
                             -Dsonar.projectName=7.3HD_Pipeline \
                             -Dsonar.host.url=https://sonarcloud.io \
-                            -Dsonar.token=${SONAR_TOKEN}
+                            -Dsonar.token=${SONAR_TOKEN} \
+                            -Dsonar.exclusions=node_modules/**,dist/**,coverage/**,**/*.spec.ts
                     '''
                 }
             }
