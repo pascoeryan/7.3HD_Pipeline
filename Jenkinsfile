@@ -73,7 +73,7 @@ pipeline {
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'npm-audit-report.txt, fingerprint: true, allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'npm-audit-report.txt', fingerprint: true, allowEmptyArchive: true
                 }
                 success {
                     echo "✅ Security scan completed"
