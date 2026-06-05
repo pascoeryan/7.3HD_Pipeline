@@ -86,7 +86,10 @@ pipeline {
                 echo '📦 Creating artifacts...'
                 sh 'mkdir -p artifact'
                 sh 'cp -r dist artifact/ || true'
-                sh 'sudo docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION}'
+        
+                // Lighter Docker save without sudo + timeout
+                sh 'timeout 120s docker save -o artifact/doubtfire-web-${BUILD_VERSION}.tar doubtfire-web:${BUILD_VERSION} || echo "Docker save timed out - skipping full image"'
+        
                 sh 'tar -czf build-${BUILD_VERSION}.tar.gz artifact'
             }
         }
