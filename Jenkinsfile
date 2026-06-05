@@ -149,8 +149,32 @@ pipeline {
                 archiveArtifacts artifacts: "build-${BUILD_VERSION}.tar.gz", fingerprint: true
             }
         }
-    }
     
+        stage('Monitoring - Datadog') {
+            steps {
+                echo '📊 Setting up Real Datadog Monitoring...'
+
+                // Stop old agent if running
+                sh 'docker stop datadog-agent || true'
+                sh 'docker rm datadog-agent || true'
+
+                // Start Datadog Agent
+                sh '''
+                    docker run -d --name datadog-agent \
+                        --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+                        --volume /proc/:/host/proc/:ro \
+                        --volume /sys/fs/cgroup:/host/sys/fs/cgroup:ro \
+                        -e DD_API_KEY=72aac7b43b34ef2fca96c3951cc90bc0 \
+                        -e DD_HOSTNAME=doubtfire-staging \
+                        gcr.io/datadoghq/agent:latest
+                    '''
+
+                    echo "✅ Datadog Agent started. Application is now being monitored."
+                    echo "View dashboard at: https://app.datadoghq.com"
+                }
+            }
+        }
+
     post {
         success {
             echo "✅ BUILD SUCCESS - Version ${BUILD_VERSION}"
