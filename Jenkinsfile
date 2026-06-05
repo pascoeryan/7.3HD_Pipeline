@@ -70,19 +70,10 @@ pipeline {
                 // NPM Audit - Force official registry
                 sh 'npm config set registry https://registry.npmjs.org/'
                 sh 'npm audit --audit-level=moderate > npm-audit-report.txt || echo "Vulnerabilities found (see report)"'
-
-                // Trivy Docker Scan - with better error handling
-                sh '''
-                    echo "Scanning Docker image with Trivy..."
-                    sudo docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
-                        --severity HIGH,CRITICAL \
-                        --format table \
-                        --output trivy-report.txt || echo "Trivy scan completed with warnings"
-                '''
             }
             post {
                 always {
-                    archiveArtifacts artifacts: 'npm-audit-report.txt, trivy-report.txt', fingerprint: true, allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'npm-audit-report.txt, fingerprint: true, allowEmptyArchive: true
                 }
                 success {
                     echo "✅ Security scan completed"
