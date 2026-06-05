@@ -1,3 +1,4 @@
+//OnTrack/doubtfire-web pipeline - 7.3HD
 pipeline {
     agent any
     environment {
@@ -32,14 +33,14 @@ pipeline {
         
         stage('Build Application') {
             steps {
-                echo '🏗️ Building Angular application...'
+                echo 'Building Angular application...'
                 sh 'npm run build'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                echo '🐳 Building Docker production image...'
+                echo 'Building Docker production image...'
                 sh 'docker build -f Dockerfile.prod -t doubtfire-web:${BUILD_VERSION} .'
                 sh 'docker tag doubtfire-web:${BUILD_VERSION} doubtfire-web:latest'
              }
@@ -47,7 +48,7 @@ pipeline {
 
         stage('Code Quality - SonarCloud') {
             steps {
-                echo '🔍 Running SonarCloud Code Quality Analysis...'
+                echo 'Running SonarCloud Code Quality Analysis...'
         
                 withCredentials([string(credentialsId: 'sonarcloud-token', variable: 'SONAR_TOKEN')]) {
                     sh '''
@@ -65,7 +66,7 @@ pipeline {
 
         stage('Security Scan') {
             steps {
-                echo '🔒 Running Security Analysis...'
+                echo 'Running Security Analysis...'
 
                 // NPM Audit - Force official registry
                 sh 'npm config set registry https://registry.npmjs.org/'
@@ -83,7 +84,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo '🚀 Deploying to Local Staging Environment...'
+                echo 'Deploying to Local Staging Environment...'
 
                 // Stop and remove previous container if it exists
                 sh 'docker stop doubtfire-web-staging || true'
@@ -104,7 +105,7 @@ pipeline {
 
         stage('Release') {
             steps {
-                echo '📦 Releasing Application...'
+                echo 'Releasing Application...'
 
                 // Git tagging (semi-automated release)
                 sh '''
@@ -120,7 +121,7 @@ pipeline {
 
         stage('Create Build Artifact') {
             steps {
-                echo '📦 Creating artifacts...'
+                echo 'Creating artifacts...'
                 sh 'mkdir -p artifact'
                 sh 'cp -r dist artifact/ || true'
         
@@ -152,7 +153,7 @@ pipeline {
     
         stage('Monitoring - Datadog') {
             steps {
-                echo '📊 Setting up Real Datadog Monitoring...'
+                echo 'Setting up Datadog Monitoring...'
 
                 // Stop old agent if running
                 sh 'docker stop datadog-agent || true'
@@ -164,7 +165,7 @@ pipeline {
                         --volume /var/run/docker.sock:/var/run/docker.sock:ro \
                         --volume /proc/:/host/proc/:ro \
                         --volume /sys/fs/cgroup:/host/sys/fs/cgroup:ro \
-                        -e DD_API_KEY=06e122a1-7d32-4066-9d46-18959df7a9e6 \
+                        -e DD_API_KEY=72aac7b43b34ef2fca96c3951cc90bc0 \
                         -e DD_HOSTNAME=doubtfire-staging \
                         -e DD_ENV=staging \
                         gcr.io/datadoghq/agent:latest
