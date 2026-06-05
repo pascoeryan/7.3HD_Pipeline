@@ -1,0 +1,3472 @@
+Started by user Ryan Pascoe
+Obtained Jenkinsfile from git git@github.com:pascoeryan/7.3HD_Pipeline.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 7531e8dc-0bb3-4138-9a53-fe181ddaca0f
+ > git rev-parse --resolve-git-dir /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:pascoeryan/7.3HD_Pipeline.git # timeout=10
+Fetching upstream changes from git@github.com:pascoeryan/7.3HD_Pipeline.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.53.0'
+using GIT_SSH to set credentials 
+Verifying host key using known hosts file
+ > git fetch --tags --force --progress -- git@github.com:pascoeryan/7.3HD_Pipeline.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision e4449310d6d70eb551df0d7541c15d9f41ce2669 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f e4449310d6d70eb551df0d7541c15d9f41ce2669 # timeout=10
+Commit message: "feat(tests): add basic test stage to complete pipeline"
+ > git rev-list --no-walk e4449310d6d70eb551df0d7541c15d9f41ce2669 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential 7531e8dc-0bb3-4138-9a53-fe181ddaca0f
+ > git rev-parse --resolve-git-dir /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:pascoeryan/7.3HD_Pipeline.git # timeout=10
+Fetching upstream changes from git@github.com:pascoeryan/7.3HD_Pipeline.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.53.0'
+using GIT_SSH to set credentials 
+Verifying host key using known hosts file
+ > git fetch --tags --force --progress -- git@github.com:pascoeryan/7.3HD_Pipeline.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision e4449310d6d70eb551df0d7541c15d9f41ce2669 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f e4449310d6d70eb551df0d7541c15d9f41ce2669 # timeout=10
+Commit message: "feat(tests): add basic test stage to complete pipeline"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Show Version / Branch)
+[Pipeline] echo
+===================================
+[Pipeline] echo
+Build Version: 1.0.60
+[Pipeline] echo
+Branch: origin/main
+[Pipeline] echo
+Build Number: 60
+[Pipeline] echo
+===================================
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install Dependencies)
+[Pipeline] echo
+🔧 Installing dependencies with pdfjs-dist fix...
+[Pipeline] sh
++ npm install pdfjs-dist@3.11.174 --save-exact --force
+npm warn using --force Recommended protections disabled.
+
+up to date, audited 2036 packages in 31s
+
+264 packages are looking for funding
+  run `npm fund` for details
+
+127 vulnerabilities (4 low, 43 moderate, 66 high, 14 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+[Pipeline] sh
++ npm ci
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@es-joy/jsdoccomment@0.31.0',
+npm warn EBADENGINE   required: { node: '^14 || ^16 || ^17 || ^18' },
+npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'eslint-plugin-jsdoc@39.3.6',
+npm warn EBADENGINE   required: { node: '^14 || ^16 || ^17 || ^18' },
+npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+npm warn EBADENGINE }
+npm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+npm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated read-package-json@7.0.1: This package is no longer supported. Please use @npmcli/package-json instead.
+npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+npm warn deprecated
+npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+npm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+npm warn deprecated protractor@7.0.0: We have news to share - Protractor is deprecated and will reach end-of-life by Summer 2023. To learn more and find out about other options please refer to this post on the Angular blog. Thank you for using and contributing to Protractor. https://goo.gle/state-of-e2e-in-angular
+npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+npm warn deprecated jquery@2.1.4: This version is deprecated. Please upgrade to the latest version or find support at https://www.herodevs.com/support/jquery-nes.
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated http2@3.3.6: Use the built-in module in node 9.0.0 or newer, instead
+npm warn deprecated har-validator@5.1.5: this library is no longer supported
+npm warn deprecated grunt-ng-annotate@3.0.0: grunt-ng-annotate is deprecated. Switch to babel-plugin-angularjs-annotate or provide annotations by yourself.
+npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+npm warn deprecated gauge@3.0.2: This package is no longer supported.
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+npm warn deprecated coffee-script@1.6.3: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+npm warn deprecated bootstrap@3.4.1: This version of Bootstrap is no longer supported. Please upgrade to the latest version.
+npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+npm warn deprecated angular-sanitize@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+npm warn deprecated angular-resource@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+npm warn deprecated angular-cookies@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+npm warn deprecated angular@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated q@1.4.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+npm warn deprecated
+npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated coffee-script@1.10.0: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated coffee-script@1.11.1: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+npm warn deprecated raw-body@1.1.7: No longer maintained. Please upgrade to a stable version.
+npm warn deprecated browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
+npm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+npm warn deprecated rimraf@2.2.8: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm warn deprecated coffee-script@1.3.3: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+npm warn deprecated graceful-fs@1.2.3: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+npm warn deprecated glob@3.1.21: Glob versions prior to v9 are no longer supported
+npm warn deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+npm warn deprecated glob@3.2.11: Glob versions prior to v9 are no longer supported
+
+> doubtfire@8.0.9 prepare
+> husky install
+
+husky - Git hooks installed
+
+added 2035 packages, and audited 2036 packages in 2m
+
+264 packages are looking for funding
+  run `npm fund` for details
+
+127 vulnerabilities (4 low, 43 moderate, 66 high, 14 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Application)
+[Pipeline] echo
+Building Angular application...
+[Pipeline] sh
++ npm run build
+
+> doubtfire@8.0.9 build
+> run-s -l build:angular1 build:angular17
+
+[build:angular1 ] 
+[build:angular1 ] > doubtfire@8.0.9 build:angular1
+[build:angular1 ] > grunt build
+[build:angular1 ] 
+[build:angular1 ] Running "env:development" (env) task
+[build:angular1 ] 
+[build:angular1 ] Running "clean:build" (clean) task
+[build:angular1 ] >> 4 paths cleaned.
+[build:angular1 ] 
+[build:angular1 ] Running "clean:styles" (clean) task
+[build:angular1 ] >> 0 paths cleaned.
+[build:angular1 ] 
+[build:angular1 ] Running "html2js:app" (html2js) task
+[build:angular1 ] Successfully converted 59 html templates to js.
+[build:angular1 ] 
+[build:angular1 ] Running "jshint:src" (jshint) task
+[build:angular1 ] >> 7 files lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "jshint:gruntfile" (jshint) task
+[build:angular1 ] >> 1 file lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "coffeelint:src" (coffeelint) task
+[build:angular1 ] >> 110 files lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "coffeelint:test" (coffeelint) task
+[build:angular1 ] >> 0 files lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "coffee:source" (coffee) task
+[build:angular1 ] >> 110 files created.
+[build:angular1 ] 
+[build:angular1 ] Running "sass_globbing:source" (sass_globbing) task
+[build:angular1 ] 
+[build:angular1 ] Running "sass:source" (sass) task
+[build:angular1 ] DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/legacy-js-api
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 3 │ @import "src/styles/vendor-config/bootstrap";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 3:9  root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 4 │ @import "src/styles/vendor-config/font-awesome";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 4:9  root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 5 │ @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 5:9  root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 6 │ @import "node_modules/font-awesome/scss/font-awesome";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 6:9  root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 7 │ @import "src/styles/mixins/animations/fade-in";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 7:9  root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): "bootstrap/"; else: "../fonts/bootstrap/")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 84 │ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+[build:angular1 ]    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 84:18  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 13 │ $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 13:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 13.5%)
+[build:angular1 ] color.adjust($color, $lightness: 13.5%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 13 │ $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 13:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │ $gray-dark:              lighten($gray-base, 20%) !default;   // #333
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 14:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 20%)
+[build:angular1 ] color.adjust($color, $lightness: 20%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │ $gray-dark:              lighten($gray-base, 20%) !default;   // #333
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 14:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 15 │ $gray:                   lighten($gray-base, 33.5%) !default; // #555
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 15:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 33.5%)
+[build:angular1 ] color.adjust($color, $lightness: 33.5%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 15 │ $gray:                   lighten($gray-base, 33.5%) !default; // #555
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 15:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 16 │ $gray-light:             lighten($gray-base, 46.7%) !default; // #777
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 16:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 46.7%)
+[build:angular1 ] color.adjust($color, $lightness: 46.7%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 16 │ $gray-light:             lighten($gray-base, 46.7%) !default; // #777
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 16:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 17 │ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 17:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 93.5%)
+[build:angular1 ] color.adjust($color, $lightness: 93.5%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 17 │ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 17:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-image-path("#{$file-1x}"); else: "#{$file-1x}")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 16 │   background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
+[build:angular1 ]    │                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_image.scss 16:25  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss 7:9          @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 9:9                 @import
+[build:angular1 ]     tmp.scss 5:9                                                                       root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-image-path("#{$file-2x}"); else: "#{$file-2x}")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 25 │     background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-2x}"), "#{$file-2x}"));
+[build:angular1 ]    │                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_image.scss 25:27  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss 7:9          @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 9:9                 @import
+[build:angular1 ]     tmp.scss 5:9                                                                       root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot"); else: "#{$icon-font-path}#{$icon-font-name}.eot")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │     src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot"), "#{$icon-font-path}#{$icon-font-name}.eot"));
+[build:angular1 ]    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons.scss 14:14  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 14:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                     root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot?#iefix"); else: "#{$icon-font-path}#{$icon-font-name}.eot?#iefix")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 15 │     src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot?#iefix"), "#{$icon-font-path}#{$icon-font-name}.eot?#iefix")) format("embedded-opentype"),
+[build:angular1 ]    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons.scss 15:14  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 14:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                     root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(30em, 14) or calc(30em / 14)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 12 │ $fa-li-width:         (30em / 14) !default;
+[build:angular1 ]    │                        ^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_variables.scss 12:24  @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 6:9  @import
+[build:angular1 ]     tmp.scss 6:9                                          root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(4em, 3) or calc(4em / 3)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 6 │   font-size: (4em / 3);
+[build:angular1 ]   │               ^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_larger.scss 6:15       @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 10:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(3em, 4) or calc(3em / 4)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 7 │   line-height: (3em / 4);
+[build:angular1 ]   │                 ^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_larger.scss 7:17       @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 10:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(18em, 14) or calc(18em / 14)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 4 │   width: (18em / 14);
+[build:angular1 ]   │           ^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_fixed-width.scss 4:11  @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 11:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(2em, 14) or calc(2em / 14)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │   top: (2em / 14);
+[build:angular1 ]    │         ^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_list.scss 14:9         @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 12:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[build:angular1 ] WARNING: 512 repetitive deprecation warnings omitted.
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "postcss:source" (postcss) task
+[build:angular1 ] >> 1 processed stylesheet created.
+[build:angular1 ] 
+[build:angular1 ] Running "clean:styles" (clean) task
+[build:angular1 ] >> 1 path cleaned.
+[build:angular1 ] 
+[build:angular1 ] Running "ngAnnotate:compile" (ngAnnotate) task
+[build:angular1 ] >> 117 files successfully annotated.
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_assets" (copy) task
+[build:angular1 ] Created 6 directories, copied 29 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:font_bootstrap" (copy) task
+[build:angular1 ] Copied 5 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:font_fontawesome" (copy) task
+[build:angular1 ] Copied 6 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_app_js" (copy) task
+[build:angular1 ] Copied 7 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_vendor_js" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_vendor_jsmap" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:copy_vendor_js" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:copy_vendor_jsmap" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:copy_vendor_css" (copy) task
+[build:angular1 ] Copied 4 files
+[build:angular1 ] 
+[build:angular1 ] Running "index:build" (index) task
+[build:angular1 ] 
+[build:angular1 ] Running "preprocess:api" (preprocess) task
+[build:angular1 ] 
+[build:angular1 ] Done.
+[build:angular17] 
+[build:angular17] > doubtfire@8.0.9 build:angular17
+[build:angular17] > ng build
+[build:angular17] 
+[build:angular17] - Building...
+[build:angular17] 
+[build:angular17] Initial chunk files | Names            |  Raw size
+[build:angular17] main.js             | main             |  11.60 MB | 
+[build:angular17] scripts.js          | scripts          |   1.60 MB | 
+[build:angular17] styles.css          | styles           | 682.83 kB | 
+[build:angular17] polyfills.js        | polyfills        |  88.13 kB | 
+[build:angular17] 
+[build:angular17]                     | Initial total    |  13.95 MB
+[build:angular17] 
+[build:angular17] Lazy chunk files    | Names            |  Raw size
+[build:angular17] chunk-K36MFXZO.js   | (disabled):fs    |  43 bytes | 
+[build:angular17] chunk-44RZXR4W.js   | (disabled):http  |  43 bytes | 
+[build:angular17] chunk-DFZRZQIY.js   | (disabled):https |  43 bytes | 
+[build:angular17] chunk-4XFN7BUU.js   | (disabled):url   |  43 bytes | 
+[build:angular17] 
+[build:angular17] Output location: /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/dist
+[build:angular17] 
+[build:angular17] Application bundle generation complete. [15.642 seconds]
+[build:angular17] 
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+🧪 Running Basic Unit Tests (Karma + Jasmine)...
+[Pipeline] sh
++ npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage=false
+
+> doubtfire@8.0.9 test
+> ng test --watch=false --browsers=ChromeHeadless --code-coverage=false
+
+- Generating browser application bundles (phase: setup)...
+05 06 2026 21:53:15.376:DEBUG [config]: Loading config /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/karma.conf.js
+05 06 2026 21:53:15.378:DEBUG [config]: autoWatch set to false, because of singleRun
+05 06 2026 21:53:15.393:DEBUG [karma-server]: Final config Config {
+  LOG_DISABLE: 'OFF',
+  LOG_ERROR: 'ERROR',
+  LOG_WARN: 'WARN',
+  LOG_INFO: 'INFO',
+  LOG_DEBUG: 'DEBUG',
+  frameworks: [ 'jasmine', '@angular-devkit/build-angular' ],
+  protocol: 'http:',
+  port: 9876,
+  listenAddress: '0.0.0.0',
+  hostname: 'localhost',
+  httpsServerConfig: {},
+  basePath: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src',
+  files: [],
+  browserConsoleLogOptions: { level: 'debug', format: '%b %T: %m', terminal: true },
+  customContextFile: null,
+  customDebugFile: null,
+  customClientContextFile: null,
+  exclude: [
+    '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/karma.conf.js'
+  ],
+  logLevel: 'DEBUG',
+  colors: true,
+  autoWatch: false,
+  autoWatchBatchDelay: 250,
+  restartOnFileChange: false,
+  usePolling: true,
+  reporters: [ 'progress', 'kjhtml' ],
+  singleRun: true,
+  browsers: [ 'ChromeHeadless' ],
+  captureTimeout: 60000,
+  pingTimeout: 5000,
+  proxies: {},
+  proxyValidateSSL: true,
+  preprocessors: [Object: null prototype] {},
+  preprocessor_priority: {},
+  urlRoot: '/',
+  upstreamProxy: undefined,
+  reportSlowerThan: 0,
+  loggers: [
+    {
+      type: 'console',
+      layout: { type: 'pattern', pattern: '%[%d{DATETIME}:%p [%c]: %]%m' }
+    }
+  ],
+  transports: [ 'polling', 'websocket' ],
+  forceJSONP: false,
+  plugins: [
+    {
+      'framework:jasmine': [
+        'factory',
+        [Function: initJasmine] { '$inject': [ 'config.files' ] }
+      ],
+      'reporter:karma-jasmine': [
+        'factory',
+        [Function: InjectKarmaJasmineReporter] {
+          '$inject': [ 'config.singleRun' ]
+        }
+      ]
+    },
+    {
+      'launcher:Chrome': [
+        'type',
+        [Function: ChromeBrowser] {
+          '$inject': [ 'baseBrowserDecorator', 'args' ]
+        }
+      ],
+      'launcher:ChromeHeadless': [
+        'type',
+        [Function: ChromeHeadlessBrowser] {
+          '$inject': [ 'baseBrowserDecorator', 'args' ]
+        }
+      ],
+      'launcher:ChromeCanary': [
+        'type',
+        [Function: ChromeCanaryBrowser] {
+          '$inject': [ 'baseBrowserDecorator', 'args' ]
+        }
+      ],
+      'launcher:ChromeCanaryHeadless': [
+        'type',
+        [Function: ChromeCanaryHeadlessBrowser] {
+          '$inject': [ 'baseBrowserDecorator', 'args' ]
+        }
+      ],
+      'launcher:Chromium': [
+        'type',
+        [Function: ChromiumBrowser] {
+          '$inject': [ 'baseBrowserDecorator', 'args' ]
+        }
+      ],
+      'launcher:ChromiumHeadless': [ 'type', [Function: ChromiumHeadlessBrowser] ],
+      'launcher:Dartium': [
+        'type',
+        [Function: DartiumBrowser] {
+          '$inject': [ 'baseBrowserDecorator', 'args' ]
+        }
+      ],
+      test: {
+        isJSFlags: [Function: isJSFlags],
+        sanitizeJSFlags: [Function: sanitizeJSFlags],
+        headlessGetOptions: [Function: headlessGetOptions],
+        canaryGetOptions: [Function: canaryGetOptions]
+      }
+    },
+    {
+      'reporter:kjhtml': [
+        'type',
+        [Function: initReporter] {
+          '$inject': [ 'config', 'baseReporterDecorator' ]
+        }
+      ]
+    },
+    {
+      'reporter:coverage-istanbul': [
+        'type',
+        [Function: CoverageIstanbulReporter] {
+          '$inject': [ 'baseReporterDecorator', 'logger', 'config' ]
+        }
+      ]
+    },
+    {
+      'framework:@angular-devkit/build-angular': [
+        'factory',
+        [Function: init] { '$inject': [ 'config', 'emitter' ] }
+      ],
+      'reporter:@angular-devkit/build-angular--sourcemap-reporter': [
+        'type',
+        [Function: sourceMapReporter] {
+          '$inject': [ 'baseReporterDecorator', 'config' ]
+        }
+      ],
+      'reporter:@angular-devkit/build-angular--event-reporter': [
+        'type',
+        [Function: eventReporter] {
+          '$inject': [ 'baseReporterDecorator', 'config' ]
+        }
+      ],
+      'middleware:@angular-devkit/build-angular--blocker': [ 'factory', [Function: requestBlocker] ],
+      'middleware:@angular-devkit/build-angular--fallback': [ 'factory', [Function: fallbackMiddleware] ]
+    },
+    [Object: null prototype] {
+      'launcher:ChromeDebug': [ 'factory', [Function (anonymous)] ]
+    }
+  ],
+  client: {
+    args: [],
+    useIframe: true,
+    runInParent: false,
+    captureConsole: true,
+    clearContext: true,
+    allowedReturnUrlPatterns: [ '^https?://' ]
+  },
+  defaultClient: {
+    args: [],
+    useIframe: true,
+    runInParent: false,
+    captureConsole: true,
+    clearContext: true,
+    allowedReturnUrlPatterns: [ '^https?://' ]
+  },
+  browserDisconnectTimeout: 2000,
+  browserDisconnectTolerance: 0,
+  browserNoActivityTimeout: 30000,
+  processKillTimeout: 2000,
+  concurrency: Infinity,
+  failOnEmptyTestSuite: true,
+  retryLimit: 2,
+  detached: false,
+  crossOriginAttribute: true,
+  browserSocketTimeout: 20000,
+  buildWebpack: {
+    options: {
+      main: 'src/test.ts',
+      polyfills: 'src/polyfills.ts',
+      tsConfig: 'src/tsconfig.spec.json',
+      karmaConfig: 'src/karma.conf.js',
+      styles: [
+        './node_modules/bootstrap/dist/css/bootstrap.css',
+        './node_modules/ngx-bootstrap/datepicker/bs-datepicker.css'
+      ],
+      scripts: [],
+      assets: [ 'src/favicon.ico', 'src/assets', 'src/manifest.webmanifest' ],
+      watch: false,
+      browsers: 'ChromeHeadless',
+      codeCoverage: false,
+      inlineStyleLanguage: 'css',
+      stylePreprocessorOptions: { includePaths: [] },
+      include: [ '**/*.spec.ts' ],
+      exclude: [],
+      sourceMap: true,
+      progress: true,
+      poll: undefined,
+      preserveSymlinks: undefined,
+      codeCoverageExclude: [],
+      fileReplacements: [],
+      reporters: [],
+      webWorkerTsConfig: undefined
+    },
+    webpackConfig: {
+      mode: 'development',
+      devtool: false,
+      target: [ 'web', 'es2015' ],
+      profile: false,
+      resolve: {
+        roots: [ '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline' ],
+        extensions: [ '.ts', '.tsx', '.mjs', '.js' ],
+        symlinks: true,
+        modules: [
+          '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline',
+          'node_modules'
+        ],
+        mainFields: [ 'es2020', 'es2015', 'browser', 'module', 'main' ],
+        conditionNames: [ 'es2020', 'es2015', '...' ]
+      },
+      resolveLoader: { symlinks: true },
+      context: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline',
+      entry: {
+        main: [
+          '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/test.ts'
+        ],
+        polyfills: [
+          '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/polyfills.ts',
+          '@angular/compiler'
+        ]
+      },
+      externals: [],
+      output: {
+        uniqueName: 'doubtfire',
+        hashFunction: 'xxhash64',
+        clean: true,
+        path: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline',
+        publicPath: '',
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+        libraryTarget: undefined,
+        crossOriginLoading: false,
+        trustedTypes: 'angular#bundler',
+        scriptType: 'module'
+      },
+      watch: true,
+      watchOptions: { poll: undefined, followSymlinks: false, ignored: undefined },
+      snapshot: { module: { hash: false } },
+      performance: { hints: false },
+      ignoreWarnings: [
+        /Failed to parse source map from/,
+        /Add postcss as project dependency/,
+        /"@charset" must be the first rule in the file/
+      ],
+      module: {
+        strictExportPresence: true,
+        parser: {
+          javascript: { requireContext: false, url: false, worker: false }
+        },
+        rules: [
+          {
+            test: /\.?(svg|html)$/,
+            resourceQuery: /\?ngResource/,
+            type: 'asset/source'
+          },
+          { test: /[/\\]rxjs[/\\]add[/\\].+\.js$/, sideEffects: true },
+          {
+            test: /\.[cm]?[tj]sx?$/,
+            resolve: { fullySpecified: false },
+            exclude: [
+              /[\\/]node_modules[/\\](?:core-js|@babel|tslib|web-animations-js|web-streams-polyfill|whatwg-url)[/\\]/
+            ],
+            use: [
+              {
+                loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js',
+                options: {
+                  cacheDirectory: false,
+                  aot: false,
+                  optimize: false,
+                  supportedBrowsers: [
+                    'chrome 148',
+                    'chrome 147',
+                    'edge 148',
+                    'edge 147',
+                    'firefox 150',
+                    'firefox 140',
+                    'ios_saf 26.4',
+                    'ios_saf 26.3',
+                    'ios_saf 26.2',
+                    'ios_saf 26.1',
+                    'ios_saf 26.0',
+                    'ios_saf 18.5-18.7',
+                    'ios_saf 18.4',
+                    'ios_saf 18.3',
+                    'ios_saf 18.2',
+                    'ios_saf 18.1',
+                    'ios_saf 18.0',
+                    'safari 26.4',
+                    'safari 26.3',
+                    'safari 26.2',
+                    'safari 26.1',
+                    'safari 26.0',
+                    'safari 18.5-18.7',
+                    'safari 18.4',
+                    'safari 18.3',
+                    'safari 18.2',
+                    'safari 18.1',
+                    'safari 18.0'
+                  ],
+                  instrumentCode: undefined
+                }
+              }
+            ]
+          },
+          {
+            test: /\.[cm]?jsx?$/,
+            enforce: 'pre',
+            loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/source-map-loader/dist/cjs.js',
+            options: {
+              filterSourceMappingUrl: [Function: filterSourceMappingUrl]
+            }
+          },
+          {
+            test: /\.[cm]?tsx?$/,
+            loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/@ngtools/webpack/src/ivy/index.js',
+            exclude: [
+              /[\\/]node_modules[/\\](?:css-loader|mini-css-extract-plugin|webpack-dev-server|webpack)[/\\]/
+            ]
+          },
+          {
+            test: /\.(?:css)$/i,
+            rules: [
+              {
+                oneOf: [
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/mini-css-extract-plugin/dist/loader.js'
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false },
+                          sourceMap: true
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngGlobalStyle/
+                  },
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1,
+                          exportType: 'string',
+                          esModule: false
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false }
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngResource/
+                  }
+                ]
+              },
+              { use: [] }
+            ]
+          },
+          {
+            test: /\.(?:scss)$/i,
+            rules: [
+              {
+                oneOf: [
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/mini-css-extract-plugin/dist/loader.js'
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false },
+                          sourceMap: true
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngGlobalStyle/
+                  },
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1,
+                          exportType: 'string',
+                          esModule: false
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false }
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngResource/
+                  }
+                ]
+              },
+              {
+                use: [
+                  {
+                    loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/resolve-url-loader/index.js',
+                    options: { sourceMap: true }
+                  },
+                  {
+                    loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/sass-loader/dist/cjs.js',
+                    options: {
+                      sourceMap: true,
+                      api: 'modern',
+                      implementation: SassWorkerImplementation {
+                        rebase: false,
+                        workers: [],
+                        availableWorkers: [],
+                        requests: Map(0) {},
+                        workerPath: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/@angular-devkit/build-angular/src/tools/sass/worker.js',
+                        idCounter: 1,
+                        nextWorkerIndex: 0
+                      },
+                      webpackImporter: false,
+                      sassOptions: [Function: sassOptions]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            test: /\.(?:sass)$/i,
+            rules: [
+              {
+                oneOf: [
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/mini-css-extract-plugin/dist/loader.js'
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false },
+                          sourceMap: true
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngGlobalStyle/
+                  },
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1,
+                          exportType: 'string',
+                          esModule: false
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false }
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngResource/
+                  }
+                ]
+              },
+              {
+                use: [
+                  {
+                    loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/resolve-url-loader/index.js',
+                    options: { sourceMap: true }
+                  },
+                  {
+                    loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/sass-loader/dist/cjs.js',
+                    options: {
+                      sourceMap: true,
+                      api: 'modern',
+                      implementation: SassWorkerImplementation {
+                        rebase: false,
+                        workers: [],
+                        availableWorkers: [],
+                        requests: Map(0) {},
+                        workerPath: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/@angular-devkit/build-angular/src/tools/sass/worker.js',
+                        idCounter: 1,
+                        nextWorkerIndex: 0
+                      },
+                      webpackImporter: false,
+                      sassOptions: [Function: sassOptions]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            test: /\.(?:less)$/i,
+            rules: [
+              {
+                oneOf: [
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/mini-css-extract-plugin/dist/loader.js'
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false },
+                          sourceMap: true
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngGlobalStyle/
+                  },
+                  {
+                    use: [
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/css-loader/dist/cjs.js',
+                        options: {
+                          url: false,
+                          sourceMap: true,
+                          importLoaders: 1,
+                          exportType: 'string',
+                          esModule: false
+                        }
+                      },
+                      {
+                        loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/postcss-loader/dist/cjs.js',
+                        options: {
+                          implementation: <ref *18> [Function: postcss] {
+                            plugin: [Function: plugin],
+                            stringify: <ref *1> [Function: stringify] {
+                              default: [Circular *1]
+                            },
+                            parse: <ref *2> [Function: parse] {
+                              default: [Circular *2]
+                            },
+                            fromJSON: <ref *3> [Function: fromJSON] {
+                              default: [Circular *3]
+                            },
+                            list: <ref *4> {
+                              comma: [Function: comma],
+                              space: [Function: space],
+                              split: [Function: split],
+                              default: [Circular *4]
+                            },
+                            comment: [Function (anonymous)],
+                            atRule: [Function (anonymous)],
+                            decl: [Function (anonymous)],
+                            rule: [Function (anonymous)],
+                            root: [Function (anonymous)],
+                            document: [Function (anonymous)],
+                            CssSyntaxError: <ref *5> [class CssSyntaxError extends Error] {
+                              default: [Circular *5]
+                            },
+                            Declaration: <ref *6> [class Declaration extends Node] {
+                              default: [Circular *6]
+                            },
+                            Container: <ref *7> [class Container extends Node] {
+                              registerParse: [Function (anonymous)],
+                              registerRule: [Function (anonymous)],
+                              registerAtRule: [Function (anonymous)],
+                              registerRoot: [Function (anonymous)],
+                              default: [Circular *7],
+                              rebuild: [Function (anonymous)]
+                            },
+                            Processor: <ref *8> [class Processor] {
+                              default: [Circular *8]
+                            },
+                            Document: <ref *9> [class Document extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *9]
+                            },
+                            Comment: <ref *10> [class Comment extends Node] {
+                              default: [Circular *10]
+                            },
+                            Warning: <ref *11> [class Warning] {
+                              default: [Circular *11]
+                            },
+                            AtRule: <ref *12> [class AtRule extends Container] {
+                              default: [Circular *12]
+                            },
+                            Result: <ref *13> [class Result] {
+                              default: [Circular *13]
+                            },
+                            Input: <ref *14> [class Input] {
+                              default: [Circular *14]
+                            },
+                            Rule: <ref *15> [class Rule extends Container] {
+                              default: [Circular *15]
+                            },
+                            Root: <ref *16> [class Root extends Container] {
+                              registerLazyResult: [Function (anonymous)],
+                              registerProcessor: [Function (anonymous)],
+                              default: [Circular *16]
+                            },
+                            Node: <ref *17> [class Node] {
+                              default: [Circular *17]
+                            },
+                            default: [Circular *18]
+                          },
+                          postcssOptions: [Function: optionGenerator] { config: false }
+                        }
+                      }
+                    ],
+                    resourceQuery: /\?ngResource/
+                  }
+                ]
+              },
+              {
+                use: [
+                  {
+                    loader: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/less-loader/dist/cjs.js',
+                    options: {
+                      implementation: {
+                        node: [Function (anonymous)],
+                        color: [Function (anonymous)],
+                        atrule: [Function (anonymous)],
+                        detachedruleset: [Function (anonymous)],
+                        operation: [Function (anonymous)],
+                        dimension: [Function (anonymous)],
+                        unit: [Function (anonymous)],
+                        keyword: [Function (anonymous)],
+                        variable: [Function (anonymous)],
+                        property: [Function (anonymous)],
+                        ruleset: [Function (anonymous)],
+                        element: [Function (anonymous)],
+                        attribute: [Function (anonymous)],
+                        combinator: [Function (anonymous)],
+                        selector: [Function (anonymous)],
+                        quoted: [Function (anonymous)],
+                        expression: [Function (anonymous)],
+                        declaration: [Function (anonymous)],
+                        call: [Function (anonymous)],
+                        url: [Function (anonymous)],
+                        import: [Function (anonymous)],
+                        comment: [Function (anonymous)],
+                        anonymous: [Function (anonymous)],
+                        value: [Function (anonymous)],
+                        javascript: [Function (anonymous)],
+                        assignment: [Function (anonymous)],
+                        condition: [Function (anonymous)],
+                        paren: [Function (anonymous)],
+                        media: [Function (anonymous)],
+                        container: [Function (anonymous)],
+                        queryinparens: [Function (anonymous)],
+                        unicodedescriptor: [Function (anonymous)],
+                        negative: [Function (anonymous)],
+                        extend: [Function (anonymous)],
+                        variablecall: [Function (anonymous)],
+                        namespacevalue: [Function (anonymous)],
+                        mixin: [Object: null prototype] {
+                          call: [Function (anonymous)],
+                          definition: [Function (anonymous)]
+                        },
+                        createFromEnvironment: [Function: default_1],
+                        lesscHelper: {
+                          stylize: [Function: stylize],
+                          printUsage: [Function: printUsage]
+                        },
+                        PluginLoader: [Function: PluginLoader],
+                        fs: {
+                          appendFile: [Function: appendFile],
+                          appendFileSync: [Function: appendFileSync],
+                          access: [Function: access],
+                          accessSync: [Function: accessSync],
+                          chown: [Function (anonymous)],
+                          chownSync: [Function (anonymous)],
+                          chmod: [Function (anonymous)],
+                          chmodSync: [Function (anonymous)],
+                          close: [Function: close],
+                          closeSync: [Function: closeSync],
+                          copyFile: [Function: copyFile],
+                          copyFileSync: [Function: copyFileSync],
+                          cp: [Function: cp],
+                          cpSync: [Function: cpSync],
+                          createReadStream: [Function: createReadStream],
+                          createWriteStream: [Function: createWriteStream],
+                          exists: [Function: exists],
+                          existsSync: [Function: existsSync],
+                          fchown: [Function (anonymous)],
+                          fchownSync: [Function (anonymous)],
+                          fchmod: [Function (anonymous)],
+                          fchmodSync: [Function (anonymous)],
+                          fdatasync: [Function: fdatasync],
+                          fdatasyncSync: [Function: fdatasyncSync],
+                          fstat: [Function (anonymous)],
+                          fstatSync: [Function (anonymous)],
+                          fsync: [Function: fsync],
+                          fsyncSync: [Function: fsyncSync],
+                          ftruncate: [Function: ftruncate],
+                          ftruncateSync: [Function: ftruncateSync],
+                          futimes: [Function: futimes],
+                          futimesSync: [Function: futimesSync],
+                          lchown: [Function (anonymous)],
+                          lchownSync: [Function (anonymous)],
+                          lchmod: [Function (anonymous)],
+                          lchmodSync: [Function (anonymous)],
+                          link: [Function: link],
+                          linkSync: [Function: linkSync],
+                          lstat: [Function (anonymous)],
+                          lstatSync: [Function (anonymous)],
+                          lutimes: [Function: lutimes],
+                          lutimesSync: [Function: lutimesSync],
+                          mkdir: [Function: mkdir],
+                          mkdirSync: [Function: mkdirSync],
+                          mkdtemp: [Function: mkdtemp],
+                          mkdtempSync: [Function: mkdtempSync],
+                          open: [Function: open],
+                          openSync: [Function: openSync],
+                          openAsBlob: [Function: openAsBlob],
+                          readdir: [Function: readdir],
+                          readdirSync: [Function: readdirSync],
+                          read: [Function: read],
+                          readSync: [Function (anonymous)],
+                          readv: [Function: readv],
+                          readvSync: [Function: readvSync],
+                          readFile: [Function: readFile],
+                          readFileSync: [Function: readFileSync],
+                          readlink: [Function: readlink],
+                          readlinkSync: [Function: readlinkSync],
+                          realpath: [Function: realpath] {
+                            native: [Function (anonymous)]
+                          },
+                          realpathSync: [Function: realpathSync] {
+                            native: [Function (anonymous)]
+                          },
+                          rename: [Function: rename],
+                          renameSync: [Function: renameSync],
+                          rm: [Function: rm],
+                          rmSync: [Function: rmSync],
+                          rmdir: [Function: rmdir],
+                          rmdirSync: [Function: rmdirSync],
+                          stat: [Function (anonymous)],
+                          statfs: [Function: statfs],
+                          statSync: [Function (anonymous)],
+                          statfsSync: [Function: statfsSync],
+                          symlink: [Function: symlink],
+                          symlinkSync: [Function: symlinkSync],
+                          truncate: [Function: truncate],
+                          truncateSync: [Function: truncateSync],
+                          unwatchFile: [Function: unwatchFile],
+                          unlink: [Function: unlink],
+                          unlinkSync: [Function: unlinkSync],
+                          utimes: [Function: utimes],
+                          utimesSync: [Function: utimesSync],
+                          watch: [Function: watch],
+                          watchFile: [Function: watchFile],
+                          writeFile: [Function: writeFile],
+                          writeFileSync: [Function: writeFileSync],
+                          write: [Function: write],
+                          writeSync: [Function: writeSync],
+                          writev: [Function: writev],
+                          writevSync: [Function: writevSync],
+                          Dirent: [class Dirent],
+                          Stats: [Function: Stats],
+                          ReadStream: [Getter/Setter],
+                          WriteStream: [Getter/Setter],
+                          FileReadStream: [Getter/Setter],
+                          FileWriteStream: [Getter/Setter],
+                          _toUnixTimestamp: [Function: toUnixTimestamp],
+                          Dir: [class Dir],
+                          opendir: [Function: opendir],
+                          opendirSync: [Function: opendirSync],
+                          F_OK: 0,
+                          R_OK: 4,
+                          W_OK: 2,
+                          X_OK: 1,
+                          constants: [Object: null prototype] {
+                            UV_FS_SYMLINK_DIR: 1,
+                            UV_FS_SYMLINK_JUNCTION: 2,
+                            O_RDONLY: 0,
+                            O_WRONLY: 1,
+                            O_RDWR: 2,
+                            UV_DIRENT_UNKNOWN: 0,
+                            UV_DIRENT_FILE: 1,
+                            UV_DIRENT_DIR: 2,
+                            UV_DIRENT_LINK: 3,
+                            UV_DIRENT_FIFO: 4,
+                            UV_DIRENT_SOCKET: 5,
+                            UV_DIRENT_CHAR: 6,
+                            UV_DIRENT_BLOCK: 7,
+                            EXTENSIONLESS_FORMAT_JAVASCRIPT: 0,
+                            EXTENSIONLESS_FORMAT_WASM: 1,
+                            S_IFMT: 61440,
+                            S_IFREG: 32768,
+                            S_IFDIR: 16384,
+                            S_IFCHR: 8192,
+                            S_IFBLK: 24576,
+                            S_IFIFO: 4096,
+                            S_IFLNK: 40960,
+                            S_IFSOCK: 49152,
+                            O_CREAT: 64,
+                            O_EXCL: 128,
+                            UV_FS_O_FILEMAP: 0,
+                            O_NOCTTY: 256,
+                            O_TRUNC: 512,
+                            O_APPEND: 1024,
+                            O_DIRECTORY: 65536,
+                            O_NOATIME: 262144,
+                            O_NOFOLLOW: 131072,
+                            O_SYNC: 1052672,
+                            O_DSYNC: 4096,
+                            O_DIRECT: 16384,
+                            O_NONBLOCK: 2048,
+                            S_IRWXU: 448,
+                            S_IRUSR: 256,
+                            S_IWUSR: 128,
+                            S_IXUSR: 64,
+                            S_IRWXG: 56,
+                            S_IRGRP: 32,
+                            S_IWGRP: 16,
+                            S_IXGRP: 8,
+                            S_IRWXO: 7,
+                            S_IROTH: 4,
+                            S_IWOTH: 2,
+                            S_IXOTH: 1,
+                            F_OK: 0,
+                            R_OK: 4,
+                            W_OK: 2,
+                            X_OK: 1,
+                            UV_FS_COPYFILE_EXCL: 1,
+                            COPYFILE_EXCL: 1,
+                            UV_FS_COPYFILE_FICLONE: 2,
+                            COPYFILE_FICLONE: 2,
+                            UV_FS_COPYFILE_FICLONE_FORCE: 4,
+                            COPYFILE_FICLONE_FORCE: 4
+                          },
+                          promises: [Getter],
+                          gracefulify: [Function: patch]
+                        },
+                        FileManager: [Function: FileManager],
+                        UrlFileManager: [Function: UrlFileManager],
+                        options: {
+                          javascriptEnabled: false,
+                          depends: false,
+                          compress: false,
+                          lint: false,
+                          paths: [],
+                          color: true,
+                          strictImports: false,
+                          insecure: false,
+                          rootpath: '',
+                          rewriteUrls: false,
+                          math: 1,
+                          strictUnits: false,
+                          globalVars: null,
+                          modifyVars: null,
+                          urlArgs: ''
+                        }
+                      },
+                      sourceMap: true,
+                      lessOptions: { javascriptEnabled: true, paths: [] }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      experiments: {
+        backCompat: false,
+        syncWebAssembly: true,
+        asyncWebAssembly: true,
+        topLevelAwait: false
+      },
+      infrastructureLogging: { debug: undefined, level: 'error' },
+      stats: {
+        all: false,
+        colors: true,
+        hash: true,
+        timings: true,
+        chunks: true,
+        builtAt: true,
+        warnings: true,
+        errors: true,
+        assets: true,
+        cachedAssets: true,
+        ids: true,
+        entrypoints: true
+      },
+      cache: { type: 'memory', maxGenerations: 1 },
+      optimization: {
+        minimizer: [],
+        moduleIds: 'deterministic',
+        chunkIds: 'named',
+        emitOnErrors: false,
+        runtimeChunk: 'single',
+        splitChunks: {
+          maxAsyncRequests: Infinity,
+          cacheGroups: {
+            default: false,
+            common: false,
+            vendors: false,
+            defaultVendors: {
+              name: 'vendor',
+              chunks: [Function: chunks],
+              enforce: true,
+              test: /[\\/]node_modules[\\/]/
+            }
+          }
+        }
+      },
+      plugins: [
+        NamedChunksPlugin {},
+        OccurrencesPlugin {
+          options: { aot: false, scriptsOptimization: false }
+        },
+        DedupeModuleResolvePlugin {
+          options: { verbose: undefined },
+          modules: Map(0) {}
+        },
+        ProgressPlugin {
+          profile: false,
+          handler: [Function: handler],
+          modulesCount: 5000,
+          dependenciesCount: 10000,
+          showEntries: true,
+          showModules: true,
+          showDependencies: true,
+          showActiveModules: false,
+          percentBy: undefined
+        },
+        CopyPlugin {
+          patterns: [
+            {
+              context: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/favicon.ico/',
+              to: 'favicon.ico/',
+              from: '**/*',
+              noErrorOnMissing: true,
+              force: true,
+              globOptions: {
+                dot: true,
+                followSymbolicLinks: false,
+                ignore: [
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/favicon.ico/.gitkeep',
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/favicon.ico/**/.DS_Store',
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/favicon.ico/**/Thumbs.db'
+                ]
+              },
+              priority: 0
+            },
+            {
+              context: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/assets/',
+              to: 'assets/',
+              from: '**/*',
+              noErrorOnMissing: true,
+              force: true,
+              globOptions: {
+                dot: true,
+                followSymbolicLinks: false,
+                ignore: [
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/assets/.gitkeep',
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/assets/**/.DS_Store',
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/assets/**/Thumbs.db'
+                ]
+              },
+              priority: 1
+            },
+            {
+              context: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/',
+              to: '',
+              from: 'manifest.webmanifest',
+              noErrorOnMissing: true,
+              force: true,
+              globOptions: {
+                dot: true,
+                followSymbolicLinks: false,
+                ignore: [
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/.gitkeep',
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/**/.DS_Store',
+                  '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/**/Thumbs.db'
+                ]
+              },
+              priority: 2
+            }
+          ],
+          options: {}
+        },
+        DevToolsIgnorePlugin {},
+        SourceMapDevToolPlugin {
+          sourceMapFilename: '[file].map',
+          sourceMappingURLComment: '\n//# sourceMappingURL=[url]',
+          moduleFilenameTemplate: '[resource-path]',
+          fallbackModuleFilenameTemplate: 'webpack://[namespace]/[resourcePath]?[hash]',
+          namespace: '',
+          options: {
+            filename: '[file].map',
+            include: [ /js$/, /css$/ ],
+            sourceRoot: 'webpack:///',
+            moduleFilenameTemplate: '[resource-path]',
+            append: undefined
+          }
+        },
+        AngularWebpackPlugin {
+          pluginOptions: {
+            emitClassMetadata: false,
+            emitNgModuleScope: true,
+            jitMode: true,
+            fileReplacements: {},
+            substitutions: {},
+            directTemplateLoading: true,
+            tsconfig: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/tsconfig.spec.json',
+            compilerOptions: {
+              sourceMap: true,
+              declaration: false,
+              declarationMap: false,
+              preserveSymlinks: false
+            },
+            inlineStyleFileExtension: 'css'
+          },
+          compilerCliModule: undefined,
+          watchMode: undefined,
+          ngtscNextProgram: undefined,
+          builder: undefined,
+          sourceFileCache: undefined,
+          webpackCache: undefined,
+          webpackCreateHash: undefined,
+          fileDependencies: Map(0) {},
+          requiredFilesToEmit: Set(0) {},
+          requiredFilesToEmitCache: Map(0) {},
+          fileEmitHistory: Map(0) {}
+        },
+        AnyComponentStyleBudgetChecker { budgets: [] },
+        StylesWebpackPlugin {
+          options: {
+            root: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline',
+            entryPoints: {
+              styles: [
+                './node_modules/bootstrap/dist/css/bootstrap.css',
+                './node_modules/ngx-bootstrap/datepicker/bs-datepicker.css'
+              ]
+            },
+            preserveSymlinks: false
+          },
+          compilation: undefined
+        },
+        { apply: [Function: apply] },
+        MiniCssExtractPlugin {
+          _sortedModulesCache: WeakMap { <items unknown> },
+          options: {
+            filename: '[name].css',
+            ignoreOrder: false,
+            experimentalUseImportModule: undefined,
+            runtime: true,
+            chunkFilename: '[name].css'
+          },
+          runtimeOptions: {
+            insert: undefined,
+            linkType: 'text/css',
+            attributes: undefined
+          }
+        },
+        SuppressExtractedTextChunksWebpackPlugin {},
+        FindTestsPlugin {
+          options: {
+            include: [ '**/*.spec.ts' ],
+            exclude: [],
+            workspaceRoot: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline',
+            projectSourceRoot: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src'
+          },
+          compilation: undefined
+        }
+      ],
+      node: false
+    },
+    logger: Logger {
+      name: 'doubtfire:test:',
+      parent: null,
+      _subject: Subject {
+        closed: false,
+        currentObservers: null,
+        observers: [
+          <ref *19> SafeSubscriber {
+            initialTeardown: undefined,
+            closed: false,
+            _parentage: null,
+            _finalizers: [
+              Subscription {
+                initialTeardown: [Function (anonymous)],
+                closed: false,
+                _parentage: [Circular *19],
+                _finalizers: null
+              }
+            ],
+            isStopped: false,
+            destination: ConsumerObserver {
+              partialObserver: {
+                next: [Function (anonymous)],
+                error: undefined,
+                complete: undefined
+              }
+            }
+          },
+          <ref *20> SafeSubscriber {
+            initialTeardown: undefined,
+            closed: false,
+            _parentage: null,
+            _finalizers: [
+              Subscription {
+                initialTeardown: [Function (anonymous)],
+                closed: false,
+                _parentage: [Circular *20],
+                _finalizers: null
+              }
+            ],
+            isStopped: false,
+            destination: ConsumerObserver {
+              partialObserver: {
+                next: undefined,
+                error: undefined,
+                complete: [Function (anonymous)]
+              }
+            }
+          }
+        ],
+        isStopped: false,
+        hasError: false,
+        thrownError: null
+      },
+      _metadata: { name: 'doubtfire:test:', path: [] },
+      _obs: Observable {
+        source: Subject {
+          closed: false,
+          currentObservers: null,
+          observers: [
+            <ref *19> SafeSubscriber {
+              initialTeardown: undefined,
+              closed: false,
+              _parentage: null,
+              _finalizers: [
+                Subscription {
+                  initialTeardown: [Function (anonymous)],
+                  closed: false,
+                  _parentage: [Circular *19],
+                  _finalizers: null
+                }
+              ],
+              isStopped: false,
+              destination: ConsumerObserver {
+                partialObserver: {
+                  next: [Function (anonymous)],
+                  error: undefined,
+                  complete: undefined
+                }
+              }
+            },
+            <ref *20> SafeSubscriber {
+              initialTeardown: undefined,
+              closed: false,
+              _parentage: null,
+              _finalizers: [
+                Subscription {
+                  initialTeardown: [Function (anonymous)],
+                  closed: false,
+                  _parentage: [Circular *20],
+                  _finalizers: null
+                }
+              ],
+              isStopped: false,
+              destination: ConsumerObserver {
+                partialObserver: {
+                  next: undefined,
+                  error: undefined,
+                  complete: [Function (anonymous)]
+                }
+              }
+            }
+          ],
+          isStopped: false,
+          hasError: false,
+          thrownError: null
+        }
+      },
+      _subscription: null
+    },
+    failureCb: [Function (anonymous)],
+    successCb: [Function (anonymous)]
+  },
+  coverageIstanbulReporter: {
+    dir: '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/src/coverage',
+    reports: [ 'html', 'lcovonly' ],
+    fixWebpackSourcePaths: true
+  },
+  angularCli: { environment: 'dev' },
+  customLaunchers: {
+    ChromeDebug: { base: 'Chrome', flags: [ '--remote-debugging-port=9333' ] }
+  }
+}
+05 06 2026 21:53:15.394:DEBUG [plugin]: Loading inline plugin defining framework:jasmine, reporter:karma-jasmine.
+05 06 2026 21:53:15.394:DEBUG [plugin]: Loading inline plugin defining launcher:Chrome, launcher:ChromeHeadless, launcher:ChromeCanary, launcher:ChromeCanaryHeadless, launcher:Chromium, launcher:ChromiumHeadless, launcher:Dartium, test.
+05 06 2026 21:53:15.395:DEBUG [plugin]: Loading inline plugin defining reporter:kjhtml.
+05 06 2026 21:53:15.395:DEBUG [plugin]: Loading inline plugin defining reporter:coverage-istanbul.
+05 06 2026 21:53:15.395:DEBUG [plugin]: Loading inline plugin defining framework:@angular-devkit/build-angular, reporter:@angular-devkit/build-angular--sourcemap-reporter, reporter:@angular-devkit/build-angular--event-reporter, middleware:@angular-devkit/build-angular--blocker, middleware:@angular-devkit/build-angular--fallback.
+05 06 2026 21:53:15.395:DEBUG [plugin]: Loading inline plugin defining launcher:ChromeDebug.
+05 06 2026 21:53:55.297:DEBUG [karma-server]: Registered a load error of type undefined with name undefined
+✔ Browser application bundle generation complete.
+05 06 2026 21:53:55.303:DEBUG [web-server]: Instantiating middleware
+05 06 2026 21:53:55.304:DEBUG [reporter]: Trying to load reporter: @angular-devkit/build-angular--event-reporter
+05 06 2026 21:53:55.305:DEBUG [reporter]: Trying to load color-version of reporter: @angular-devkit/build-angular--event-reporter (@angular-devkit/build-angular--event-reporter_color)
+05 06 2026 21:53:55.305:DEBUG [reporter]: Couldn't load color-version.
+05 06 2026 21:53:55.305:DEBUG [reporter]: Trying to load reporter: @angular-devkit/build-angular--sourcemap-reporter
+05 06 2026 21:53:55.305:DEBUG [reporter]: Trying to load color-version of reporter: @angular-devkit/build-angular--sourcemap-reporter (@angular-devkit/build-angular--sourcemap-reporter_color)
+05 06 2026 21:53:55.305:DEBUG [reporter]: Couldn't load color-version.
+05 06 2026 21:53:55.310:DEBUG [reporter]: Trying to load reporter: kjhtml
+05 06 2026 21:53:55.310:DEBUG [reporter]: Trying to load color-version of reporter: kjhtml (kjhtml_color)
+05 06 2026 21:53:55.310:DEBUG [reporter]: Couldn't load color-version.
+
+./src/test.ts:2:0-44 - Error: Module not found: Error: "./dist/long-stack-trace-zone" is not exported under the conditions ["es2020","es2015","import","module","webpack","development","browser"] from package /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js (see exports field in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js/package.json)
+
+./src/test.ts:3:0-31 - Error: Module not found: Error: "./dist/proxy.js" is not exported under the conditions ["es2020","es2015","import","module","webpack","development","browser"] from package /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js (see exports field in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js/package.json)
+
+./src/test.ts:4:0-32 - Error: Module not found: Error: "./dist/sync-test" is not exported under the conditions ["es2020","es2015","import","module","webpack","development","browser"] from package /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js (see exports field in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js/package.json)
+
+./src/test.ts:5:0-36 - Error: Module not found: Error: "./dist/jasmine-patch" is not exported under the conditions ["es2020","es2015","import","module","webpack","development","browser"] from package /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js (see exports field in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js/package.json)
+
+./src/test.ts:6:0-33 - Error: Module not found: Error: "./dist/async-test" is not exported under the conditions ["es2020","es2015","import","module","webpack","development","browser"] from package /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js (see exports field in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js/package.json)
+
+./src/test.ts:7:0-38 - Error: Module not found: Error: "./dist/fake-async-test" is not exported under the conditions ["es2020","es2015","import","module","webpack","development","browser"] from package /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js (see exports field in /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/zone.js/package.json)
+
+
+05 06 2026 21:53:55.343:INFO [karma-server]: Karma v6.4.4 server started at http://localhost:9876/
+05 06 2026 21:53:55.343:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
+05 06 2026 21:53:55.344:ERROR [karma-server]: Error: Found 1 load error
+    at Server.<anonymous> (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/node_modules/karma/lib/server.js:243:26)
+    at Object.onceWrapper (node:events:638:28)
+    at Server.emit (node:events:536:35)
+    at Server.emit (node:domain:489:12)
+    at emitListeningNT (node:net:1951:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+05 06 2026 21:53:55.345:DEBUG [launcher]: Disconnecting all browsers
+✔ Browser application bundle generation complete.
+05 06 2026 21:53:55.346:DEBUG [proxy]: Destroying proxy agents
+05 06 2026 21:53:55.348:DEBUG [karma-server]: Received stop event, exiting.
+05 06 2026 21:53:55.348:DEBUG [launcher]: Disconnecting all browsers
+✔ Browser application bundle generation complete.
+05 06 2026 21:53:55.348:DEBUG [proxy]: Destroying proxy agents
++ echo Some tests had issues
+Some tests had issues
+Post stage
+[Pipeline] archiveArtifacts
+Archiving artifacts
+‘coverage/**’ doesn’t match anything, but ‘**’ does. Perhaps that’s what you mean?
+No artifacts found that match the file pattern "coverage/**". Configuration error?
+[Pipeline] echo
+✅ Test stage completed
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] echo
+Building Docker production image...
+[Pipeline] sh
++ docker build -f Dockerfile.prod -t doubtfire-web:1.0.60 .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon   4.43GB
+Step 1/11 : FROM node:18-alpine AS builder
+18-alpine: Pulling from library/node
+25ff2da83641: Pulling fs layer
+1e5a4c89cee5: Pulling fs layer
+f18232174bc9: Pulling fs layer
+dd71dde834b5: Pulling fs layer
+25ff2da83641: Download complete
+f18232174bc9: Download complete
+1e5a4c89cee5: Download complete
+f18232174bc9: Pull complete
+27e1cfd0b5f2: Download complete
+0758d11b0bb7: Download complete
+dd71dde834b5: Download complete
+dd71dde834b5: Pull complete
+25ff2da83641: Pull complete
+1e5a4c89cee5: Pull complete
+Digest: sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+Status: Downloaded newer image for node:18-alpine
+ ---> 8d6421d663b4
+Step 2/11 : WORKDIR /app
+ ---> Running in 090fa94d015b
+ ---> Removed intermediate container 090fa94d015b
+ ---> 1dd54a8b1700
+Step 3/11 : COPY package*.json ./
+ ---> 139f4ad09ca6
+Step 4/11 : RUN npm ci --force
+ ---> Running in 5bc051d45557
+[91mnpm warn using --force Recommended protections disabled.
+[0m[91mnpm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+[0m[91mnpm warn deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+[0m[91mnpm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+[0m[91mnpm warn deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+[0m[91mnpm warn deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+[0m[91mnpm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+[0m[91mnpm warn deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+[0m[91mnpm warn deprecated read-package-json@7.0.1: This package is no longer supported. Please use @npmcli/package-json instead.
+[0m[91mnpm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+npm warn deprecated
+npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+[0m[91mnpm warn deprecated protractor@7.0.0: We have news to share - Protractor is deprecated and will reach end-of-life by Summer 2023. To learn more and find out about other options please refer to this post on the Angular blog. Thank you for using and contributing to Protractor. https://goo.gle/state-of-e2e-in-angular
+[0m[91mnpm warn deprecated q@1.4.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+npm warn deprecated
+npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+[0m[91mnpm warn deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
+[0m[91mnpm warn deprecated npmlog@5.0.1: This package is no longer supported.
+[0m[91mnpm warn deprecated jquery@2.1.4: This version is deprecated. Please upgrade to the latest version or find support at https://www.herodevs.com/support/jquery-nes.
+[0m[91mnpm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated http2@3.3.6: Use the built-in module in node 9.0.0 or newer, instead
+[0m[91mnpm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[0m[91mnpm warn deprecated har-validator@5.1.5: this library is no longer supported
+[0m[91mnpm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated grunt-ng-annotate@3.0.0: grunt-ng-annotate is deprecated. Switch to babel-plugin-angularjs-annotate or provide annotations by yourself.
+[0m[91mnpm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated coffee-script@1.10.0: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+[0m[91mnpm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[0m[91mnpm warn deprecated gauge@3.0.2: This package is no longer supported.
+[0m[91mnpm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+[0m[91mnpm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated coffee-script@1.6.3: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+[0m[91mnpm warn deprecated coffee-script@1.11.1: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+[0m[91mnpm warn deprecated bootstrap@3.4.1: This version of Bootstrap is no longer supported. Please upgrade to the latest version.
+npm warn deprecated raw-body@1.1.7: No longer maintained. Please upgrade to a stable version.
+[0m[91mnpm warn deprecated core-js@2.6.12: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
+[0m[91mnpm warn deprecated browserslist@1.7.7: Browserslist 2 could fail on reading Browserslist >3.0 config used in other tools.
+[0m[91mnpm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+[0m[91mnpm warn deprecated angular-sanitize@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+[0m[91mnpm warn deprecated angular-resource@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+[0m[91mnpm warn deprecated rimraf@2.2.8: Rimraf versions prior to v4 are no longer supported
+[0m[91mnpm warn deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+[0m[91mnpm warn deprecated graceful-fs@1.2.3: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+[0m[91mnpm warn deprecated coffee-script@1.3.3: CoffeeScript on NPM has moved to "coffeescript" (no hyphen)
+[0m[91mnpm warn deprecated minimatch@0.3.0: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+[0m[91mnpm warn deprecated glob@3.2.11: Glob versions prior to v9 are no longer supported
+[0m[91mnpm warn deprecated angular-cookies@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+[0m[91mnpm warn deprecated glob@3.1.21: Glob versions prior to v9 are no longer supported
+[0m[91mnpm warn deprecated angular@1.5.11: For the actively supported Angular, see https://www.npmjs.com/package/@angular/core. AngularJS support has officially ended. For extended AngularJS support options, see https://goo.gle/angularjs-path-forward.
+[0m[91mnpm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+[0m[91mnpm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+[0m
+> doubtfire@8.0.9 prepare
+> husky install
+
+husky - git command not found, skipping install
+
+added 1992 packages, and audited 1993 packages in 2m
+
+258 packages are looking for funding
+  run `npm fund` for details
+
+127 vulnerabilities (4 low, 43 moderate, 66 high, 14 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+[91mnpm notice
+npm notice New major version of npm available! 10.8.2 -> 11.16.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+npm notice To update run: npm install -g npm@11.16.0
+npm notice
+[0m ---> Removed intermediate container 5bc051d45557
+ ---> 6a67c8938a5e
+Step 5/11 : COPY . .
+ ---> 546d00dca3f8
+Step 6/11 : RUN npm run build
+ ---> Running in a53273cf141f
+
+> doubtfire@8.0.9 build
+> run-s -l build:angular1 build:angular17
+
+[build:angular1 ] 
+[build:angular1 ] > doubtfire@8.0.9 build:angular1
+[build:angular1 ] > grunt build
+[build:angular1 ] 
+[build:angular1 ] Running "env:development" (env) task
+[build:angular1 ] 
+[build:angular1 ] Running "clean:build" (clean) task
+[build:angular1 ] >> 0 paths cleaned.
+[build:angular1 ] 
+[build:angular1 ] Running "clean:styles" (clean) task
+[build:angular1 ] >> 0 paths cleaned.
+[build:angular1 ] 
+[build:angular1 ] Running "html2js:app" (html2js) task
+[build:angular1 ] Successfully converted 59 html templates to js.
+[build:angular1 ] 
+[build:angular1 ] Running "jshint:src" (jshint) task
+[build:angular1 ] >> 7 files lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "jshint:gruntfile" (jshint) task
+[build:angular1 ] >> 1 file lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "coffeelint:src" (coffeelint) task
+[build:angular1 ] >> 110 files lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "coffeelint:test" (coffeelint) task
+[build:angular1 ] >> 0 files lint free.
+[build:angular1 ] 
+[build:angular1 ] Running "coffee:source" (coffee) task
+[build:angular1 ] >> 110 files created.
+[build:angular1 ] 
+[build:angular1 ] Running "sass_globbing:source" (sass_globbing) task
+[build:angular1 ] 
+[build:angular1 ] Running "sass:source" (sass) task
+[91m[build:angular1 ] DEPRECATION WARNING [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/legacy-js-api
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 3 │ @import "src/styles/vendor-config/bootstrap";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 3:9  root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 4 │ @import "src/styles/vendor-config/font-awesome";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 4:9  root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 5 │ @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 5:9  root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 6 │ @import "node_modules/font-awesome/scss/font-awesome";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 6:9  root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [import]: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 7 │ @import "src/styles/mixins/animations/fade-in";
+[build:angular1 ]   │         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     tmp.scss 7:9  root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): "bootstrap/"; else: "../fonts/bootstrap/")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 84 │ $icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../fonts/bootstrap/") !default;
+[build:angular1 ]    │                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 84:18  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 13 │ $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 13:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 13.5%)
+[build:angular1 ] color.adjust($color, $lightness: 13.5%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 13 │ $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 13:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │ $gray-dark:              lighten($gray-base, 20%) !default;   // #333
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 14:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 20%)
+[build:angular1 ] color.adjust($color, $lightness: 20%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │ $gray-dark:              lighten($gray-base, 20%) !default;   // #333
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 14:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 15 │ $gray:                   lighten($gray-base, 33.5%) !default; // #555
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 15:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 33.5%)
+[build:angular1 ] color.adjust($color, $lightness: 33.5%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 15 │ $gray:                   lighten($gray-base, 33.5%) !default; // #555
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 15:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 16 │ $gray-light:             lighten($gray-base, 46.7%) !default; // #777
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 16:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 46.7%)
+[build:angular1 ] color.adjust($color, $lightness: 46.7%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 16 │ $gray-light:             lighten($gray-base, 46.7%) !default; // #777
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 16:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [global-builtin]: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+[build:angular1 ] Use color.adjust instead.
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/import
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 17 │ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 17:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [color-functions]: lighten() is deprecated. Suggestions:
+[build:angular1 ] 
+[build:angular1 ] color.scale($color, $lightness: 93.5%)
+[build:angular1 ] color.adjust($color, $lightness: 93.5%)
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/color-functions
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 17 │ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+[build:angular1 ]    │                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss 17:26  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 8:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                    root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-image-path("#{$file-1x}"); else: "#{$file-1x}")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 16 │   background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
+[build:angular1 ]    │                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_image.scss 16:25  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss 7:9          @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 9:9                 @import
+[build:angular1 ]     tmp.scss 5:9                                                                       root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-image-path("#{$file-2x}"); else: "#{$file-2x}")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 25 │     background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-2x}"), "#{$file-2x}"));
+[build:angular1 ]    │                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins/_image.scss 25:27  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss 7:9          @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 9:9                 @import
+[build:angular1 ]     tmp.scss 5:9                                                                       root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot"); else: "#{$icon-font-path}#{$icon-font-name}.eot")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │     src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot"), "#{$icon-font-path}#{$icon-font-name}.eot"));
+[build:angular1 ]    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons.scss 14:14  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 14:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                     root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [if-function]: The Sass if() syntax is deprecated in favor of the modern CSS syntax.
+[build:angular1 ] 
+[build:angular1 ] Suggestion: if(sass($bootstrap-sass-asset-helper): twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot?#iefix"); else: "#{$icon-font-path}#{$icon-font-name}.eot?#iefix")
+[build:angular1 ] 
+[build:angular1 ] More info: https://sass-lang.com/d/if-function
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 15 │     src: url(if($bootstrap-sass-asset-helper, twbs-font-path("#{$icon-font-path}#{$icon-font-name}.eot?#iefix"), "#{$icon-font-path}#{$icon-font-name}.eot?#iefix")) format("embedded-opentype"),
+[build:angular1 ]    │              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons.scss 15:14  @import
+[build:angular1 ]     node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss 14:9              @import
+[build:angular1 ]     tmp.scss 5:9                                                                     root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(30em, 14) or calc(30em / 14)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 12 │ $fa-li-width:         (30em / 14) !default;
+[build:angular1 ]    │                        ^^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_variables.scss 12:24  @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 6:9  @import
+[build:angular1 ]     tmp.scss 6:9                                          root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(4em, 3) or calc(4em / 3)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 6 │   font-size: (4em / 3);
+[build:angular1 ]   │               ^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_larger.scss 6:15       @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 10:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(3em, 4) or calc(3em / 4)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 7 │   line-height: (3em / 4);
+[build:angular1 ]   │                 ^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_larger.scss 7:17       @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 10:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(18em, 14) or calc(18em / 14)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]   ╷
+[build:angular1 ] 4 │   width: (18em / 14);
+[build:angular1 ]   │           ^^^^^^^^^
+[build:angular1 ]   ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_fixed-width.scss 4:11  @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 11:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] DEPRECATION WARNING [slash-div]: Using / for division outside of calc() is deprecated and will be removed in Dart Sass 2.0.0.
+[build:angular1 ] 
+[build:angular1 ] Recommendation: math.div(2em, 14) or calc(2em / 14)
+[build:angular1 ] 
+[build:angular1 ] More info and automated migrator: https://sass-lang.com/d/slash-div
+[build:angular1 ] 
+[build:angular1 ]    ╷
+[build:angular1 ] 14 │   top: (2em / 14);
+[build:angular1 ]    │         ^^^^^^^^
+[build:angular1 ]    ╵
+[build:angular1 ]     node_modules/font-awesome/scss/_list.scss 14:9         @import
+[build:angular1 ]     node_modules/font-awesome/scss/font-awesome.scss 12:9  @import
+[build:angular1 ]     tmp.scss 6:9                                           root stylesheet
+[build:angular1 ] 
+[0m[91m[build:angular1 ] WARNING: 512 repetitive deprecation warnings omitted.
+[build:angular1 ] 
+[0m[build:angular1 ] 
+[build:angular1 ] Running "postcss:source" (postcss) task
+[build:angular1 ] >> 1 processed stylesheet created.
+[build:angular1 ] 
+[build:angular1 ] Running "clean:styles" (clean) task
+[build:angular1 ] >> 1 path cleaned.
+[build:angular1 ] 
+[build:angular1 ] Running "ngAnnotate:compile" (ngAnnotate) task
+[build:angular1 ] >> 117 files successfully annotated.
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_assets" (copy) task
+[build:angular1 ] Created 6 directories, copied 29 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:font_bootstrap" (copy) task
+[build:angular1 ] Copied 5 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:font_fontawesome" (copy) task
+[build:angular1 ] Copied 6 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_app_js" (copy) task
+[build:angular1 ] Copied 7 files
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_vendor_js" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:build_vendor_jsmap" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:copy_vendor_js" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:copy_vendor_jsmap" (copy) task
+[build:angular1 ] 
+[build:angular1 ] 
+[build:angular1 ] Running "copy:copy_vendor_css" (copy) task
+[build:angular1 ] Copied 4 files
+[build:angular1 ] 
+[build:angular1 ] Running "index:build" (index) task
+[build:angular1 ] 
+[build:angular1 ] Running "preprocess:api" (preprocess) task
+[build:angular1 ] 
+[build:angular1 ] Done.
+[build:angular17] 
+[build:angular17] > doubtfire@8.0.9 build:angular17
+[build:angular17] > ng build
+[build:angular17] 
+[91m[build:angular17] - Building...
+[build:angular17] 
+[0m[build:angular17] Initial chunk files | Names            |  Raw size
+[build:angular17] main.js             | main             |  11.60 MB | 
+[build:angular17] scripts.js          | scripts          |   1.60 MB | 
+[build:angular17] styles.css          | styles           | 682.83 kB | 
+[build:angular17] polyfills.js        | polyfills        |  88.13 kB | 
+[build:angular17] 
+[build:angular17]                     | Initial total    |  13.95 MB
+[build:angular17] 
+[build:angular17] Lazy chunk files    | Names            |  Raw size
+[build:angular17] chunk-K36MFXZO.js   | (disabled):fs    |  43 bytes | 
+[build:angular17] chunk-44RZXR4W.js   | (disabled):http  |  43 bytes | 
+[build:angular17] chunk-DFZRZQIY.js   | (disabled):https |  43 bytes | 
+[build:angular17] chunk-4XFN7BUU.js   | (disabled):url   |  43 bytes | 
+[build:angular17] 
+[build:angular17] Output location: /app/dist
+[build:angular17] 
+[build:angular17] Application bundle generation complete. [48.557 seconds]
+[build:angular17] 
+ ---> Removed intermediate container a53273cf141f
+ ---> 8435c398fd68
+Step 7/11 : FROM nginx:alpine
+alpine: Pulling from library/nginx
+ab556c9e4280: Download complete
+2d8223aa4623: Download complete
+Digest: sha256:8b1e78743a03dbb2c95171cc58639fef29abc8816598e27fb910ed2e621e589a
+Status: Downloaded newer image for nginx:alpine
+ ---> 8b1e78743a03
+Step 8/11 : COPY --from=builder /app/dist /usr/share/nginx/html
+ ---> f14b4b4c34c9
+Step 9/11 : COPY nginx.conf /etc/nginx/conf.d/default.conf
+ ---> 51b3719a5dba
+Step 10/11 : EXPOSE 80
+ ---> Running in 3c62a26a94bf
+ ---> Removed intermediate container 3c62a26a94bf
+ ---> 3f5407f4738f
+Step 11/11 : CMD ["nginx", "-g", "daemon off;"]
+ ---> Running in 1981af60ccb2
+ ---> Removed intermediate container 1981af60ccb2
+ ---> f9399dfb2ac0
+Successfully built f9399dfb2ac0
+Successfully tagged doubtfire-web:1.0.60
+[Pipeline] sh
++ docker tag doubtfire-web:1.0.60 doubtfire-web:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Code Quality - SonarCloud)
+[Pipeline] echo
+Running SonarCloud Code Quality Analysis...
+[Pipeline] withCredentials
+Masking supported pattern matches of $SONAR_TOKEN
+[Pipeline] {
+[Pipeline] sh
++ npx sonarqube-scanner -Dsonar.organization=pascoeryan -Dsonar.projectKey=7.3HD_Pipeline -Dsonar.projectName=7.3HD_Pipeline -Dsonar.host.url=https://sonarcloud.io -Dsonar.token=**** -Dsonar.exclusions=node_modules/**,dist/**,coverage/**,**/*.spec.ts
+[INFO]  Bootstrapper: Retrieving info from "package.json" file
+[INFO]  Bootstrapper: Platform: linux x64
+[INFO]  Bootstrapper: Server URL: https://sonarcloud.io
+[INFO]  Bootstrapper: Version: 4.3.6
+[INFO]  Bootstrapper: JRE provisioning is supported
+[INFO]  Bootstrapper: Using JRE from the cache
+[INFO]  ScannerEngine: Starting SonarScanner Engine...
+[INFO]  ScannerEngine: Java 21.0.9 Eclipse Adoptium (64-bit)
+[INFO]  ScannerEngine: Load global settings
+[INFO]  ScannerEngine: Load global settings (done) | time=1674ms
+[INFO]  ScannerEngine: Server id: 1BD809FA-AWHW8ct9-T_TB3XqouNu
+[INFO]  ScannerEngine: Loading required plugins
+[INFO]  ScannerEngine: Load plugins index
+[INFO]  ScannerEngine: Load plugins index (done) | time=882ms
+[INFO]  ScannerEngine: Load/download plugins
+[INFO]  ScannerEngine: Load/download plugins (done) | time=147ms
+[INFO]  ScannerEngine: Loaded core extensions: a3s, sca, architecture
+[INFO]  ScannerEngine: Process project properties
+[INFO]  ScannerEngine: Project key: 7.3HD_Pipeline
+[INFO]  ScannerEngine: Base dir: /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline
+[INFO]  ScannerEngine: Working dir: /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork
+[INFO]  ScannerEngine: Load project settings for component key: '7.3HD_Pipeline'
+[INFO]  ScannerEngine: Load project settings for component key: '7.3HD_Pipeline' (done) | time=523ms
+[INFO]  ScannerEngine: Found an active CI vendor: 'Jenkins'
+[INFO]  ScannerEngine: Check ALM binding of project '7.3HD_Pipeline'
+[INFO]  ScannerEngine: Detected project binding: NOT_BOUND
+[INFO]  ScannerEngine: Check ALM binding of project '7.3HD_Pipeline' (done) | time=550ms
+[INFO]  ScannerEngine: Load branch configuration
+[INFO]  ScannerEngine: Load branch configuration (done) | time=3ms
+[INFO]  ScannerEngine: Create analysis
+[INFO]  ScannerEngine: Create analysis (done) | time=582ms
+[INFO]  ScannerEngine: Load quality profiles
+[INFO]  ScannerEngine: Load quality profiles (done) | time=745ms
+[INFO]  ScannerEngine: Load active rules
+[INFO]  ScannerEngine: Load active rules (done) | time=2468ms
+[INFO]  ScannerEngine: Organization key: pascoeryan
+[INFO]  ScannerEngine: Preprocessing files...
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.51.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.25.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.50.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.52.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.35.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.23.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.18.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.36.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.24.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.55.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.37.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.53.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.56.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/build-1.0.58.tar.gz' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.52.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.23.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.50.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.58.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.24.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.56.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.55.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.35.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.18.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.51.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.25.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.53.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.37.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[WARN]  ScannerEngine: File '/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/artifact/doubtfire-web-1.0.36.tar' is bigger than 20MB and as consequence is removed from the analysis scope.
+[INFO]  ScannerEngine: 10 languages detected in 690 preprocessed files (done) | time=788ms
+[INFO]  ScannerEngine: 47 files ignored because of inclusion/exclusion patterns
+[INFO]  ScannerEngine: 2 directories skipped because of exclusion patterns (content not counted)
+[INFO]  ScannerEngine: 517 files ignored because of scm ignore settings
+[INFO]  ScannerEngine: Loading plugins for detected languages
+[INFO]  ScannerEngine: Load/download plugins
+[INFO]  ScannerEngine: Load/download plugins (done) | time=221ms
+[INFO]  ScannerEngine: Load project repositories
+[INFO]  ScannerEngine: Load project repositories (done) | time=544ms
+[INFO]  ScannerEngine: Indexing files...
+[INFO]  ScannerEngine: Project configuration:
+[INFO]  ScannerEngine:   Excluded sources: node_modules/**, dist/**, coverage/**, **/*.spec.ts, **/build-wrapper-dump.json
+[INFO]  ScannerEngine: 690 files indexed (done) | time=216ms
+[INFO]  ScannerEngine: Quality profile for css: Sonar way
+[INFO]  ScannerEngine: Quality profile for docker: Sonar way
+[INFO]  ScannerEngine: Quality profile for groovy: Sonar way
+[INFO]  ScannerEngine: Quality profile for js: Sonar way
+[INFO]  ScannerEngine: Quality profile for json: Sonar way
+[INFO]  ScannerEngine: Quality profile for shell: Sonar way
+[INFO]  ScannerEngine: Quality profile for ts: Sonar way
+[INFO]  ScannerEngine: Quality profile for web: Sonar way
+[INFO]  ScannerEngine: Quality profile for xml: Sonar way
+[INFO]  ScannerEngine: Quality profile for yaml: Sonar way
+[INFO]  ScannerEngine: ------------- Run sensors on module 7.3HD_Pipeline
+[INFO]  ScannerEngine: Load metrics repository
+[INFO]  ScannerEngine: Load metrics repository (done) | time=333ms
+[INFO]  ScannerEngine: Sensor cache enabled
+[INFO]  ScannerEngine: Load sensor cache
+[INFO]  ScannerEngine: Load sensor cache (1004 KB) | time=6553ms
+[INFO]  ScannerEngine: Reflections took 127 ms to scan 1 urls, producing 26 keys and 266 values
+[INFO]  ScannerEngine: Sensor HTML [web]
+[INFO]  ScannerEngine: Sensor HTML [web] (done) | time=3056ms
+[INFO]  ScannerEngine: Sensor XML Sensor [xml]
+[INFO]  ScannerEngine: 1 source file to be analyzed
+[INFO]  ScannerEngine: 1/1 source file has been analyzed
+[INFO]  ScannerEngine: Sensor XML Sensor [xml] (done) | time=395ms
+[INFO]  ScannerEngine: Sensor JaCoCo XML Report Importer [jacoco]
+[INFO]  ScannerEngine: 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+[INFO]  ScannerEngine: No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+[INFO]  ScannerEngine: Sensor JaCoCo XML Report Importer [jacoco] (done) | time=9ms
+[INFO]  ScannerEngine: Sensor JasminFileCollectorSensor [jasmin]
+[INFO]  ScannerEngine: Sensor JasminFileCollectorSensor [jasmin] (done) | time=4ms
+[INFO]  ScannerEngine: Sensor IaC CloudFormation Sensor [iac]
+[INFO]  ScannerEngine: There are no files to be analyzed for the CloudFormation language
+[INFO]  ScannerEngine: Sensor IaC CloudFormation Sensor [iac] (done) | time=220ms
+[INFO]  ScannerEngine: Sensor IaC cfn-lint report Sensor [iac]
+[INFO]  ScannerEngine: Sensor IaC cfn-lint report Sensor [iac] (done) | time=1ms
+[INFO]  ScannerEngine: Sensor IaC Kustomization Sensor [iac]
+[INFO]  ScannerEngine: Sensor IaC Kustomization Sensor [iac] (done) | time=7ms
+[INFO]  ScannerEngine: Sensor IaC hadolint report Sensor [iac]
+[INFO]  ScannerEngine: Sensor IaC hadolint report Sensor [iac] (done) | time=0ms
+[INFO]  ScannerEngine: Sensor IaC Azure Resource Manager Sensor [iac]
+[INFO]  ScannerEngine: There are no files to be analyzed for the Azure Resource Manager language
+[INFO]  ScannerEngine: Sensor IaC Azure Resource Manager Sensor [iac] (done) | time=11ms
+[INFO]  ScannerEngine: Sensor Java Config Sensor [iac]
+[INFO]  ScannerEngine: There are no files to be analyzed for the Java language
+[INFO]  ScannerEngine: Sensor Java Config Sensor [iac] (done) | time=40ms
+[INFO]  ScannerEngine: Sensor IaC Docker Sensor [iac]
+[INFO]  ScannerEngine: 3 source files to be analyzed
+[INFO]  ScannerEngine: 3/3 source files have been analyzed
+[INFO]  ScannerEngine: Sensor IaC Docker Sensor [iac] (done) | time=750ms
+[INFO]  ScannerEngine: Sensor IaC Ansible Sensor [iac]
+[INFO]  ScannerEngine: There are no files to be analyzed for the Ansible language
+[INFO]  ScannerEngine: Sensor IaC Ansible Sensor [iac] (done) | time=38ms
+[INFO]  ScannerEngine: Sensor IaC ansible-lint report Sensor [iac]
+[INFO]  ScannerEngine: Sensor IaC ansible-lint report Sensor [iac] (done) | time=0ms
+[INFO]  ScannerEngine: Sensor IaC spectral report Sensor [iac]
+[INFO]  ScannerEngine: Sensor IaC spectral report Sensor [iac] (done) | time=1ms
+[INFO]  ScannerEngine: Sensor IaC GitHub Actions Sensor [iac]
+[INFO]  ScannerEngine: 2 source files to be analyzed
+[INFO]  ScannerEngine: 2/2 source files have been analyzed
+[INFO]  ScannerEngine: Sensor IaC GitHub Actions Sensor [iac] (done) | time=260ms
+[INFO]  ScannerEngine: Sensor IaC actionlint report Sensor [iac]
+[INFO]  ScannerEngine: Sensor IaC actionlint report Sensor [iac] (done) | time=0ms
+[INFO]  ScannerEngine: Sensor IaC Azure Pipelines Sensor [iac]
+[INFO]  ScannerEngine: There are no files to be analyzed for the Azure Pipelines language
+[INFO]  ScannerEngine: Sensor IaC Azure Pipelines Sensor [iac] (done) | time=8ms
+[INFO]  ScannerEngine: Sensor IaC Shell Sensor [iac]
+[INFO]  ScannerEngine: 2 source files to be analyzed
+[INFO]  ScannerEngine: 2/2 source files have been analyzed
+[INFO]  ScannerEngine: Sensor IaC Shell Sensor [iac] (done) | time=73ms
+[INFO]  ScannerEngine: Sensor JavaScript/TypeScript/CSS analysis [javascript]
+[INFO]  ScannerEngine: Detected os: Linux arch: amd64 alpine: false. Platform: LINUX_X64
+[INFO]  ScannerEngine: Deploy location /home/ryan/.sonar/js/node-runtime, tagetRuntime: /home/ryan/.sonar/js/node-runtime/node,  version: /home/ryan/.sonar/js/node-runtime/version.txt
+[INFO]  ScannerEngine: Using embedded Node.js runtime.
+[INFO]  ScannerEngine: Using Node.js executable: '/home/ryan/.sonar/js/node-runtime/node'.
+[INFO]  ScannerEngine: Memory configuration: OS (31081 MB), Node.js (4288 MB).
+[INFO]  ScannerEngine: gRPC analyze-project server listening on 127.0.0.1:41903
+[INFO]  ScannerEngine: Plugin version: [12.5.0.41048]
+[INFO]  ScannerEngine: Found 1 tsconfig.json file(s): [/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/tsconfig.json]
+[ERROR] ScannerEngine: Error: Unexpected token (12:7)
+[ERROR] ScannerEngine:     at e.parsingError (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2297:3179)
+[ERROR] ScannerEngine:     at Evr (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2445:26904)
+[ERROR] ScannerEngine:     at u2r (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2445:27526)
+[ERROR] ScannerEngine:     at GKm (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2445:499722)
+[ERROR] ScannerEngine:     at tDo (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2445:500261)
+[ERROR] ScannerEngine:     at vQe (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:1245)
+[ERROR] ScannerEngine:     at A (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:13225)
+[ERROR] ScannerEngine:     at async ILg (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:13470)
+[ERROR] ScannerEngine:     at async Rul (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:12289)
+[ERROR] ScannerEngine:     at async qul (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:18527)
+[ERROR] ScannerEngine:     at async P8r (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:24999)
+[ERROR] ScannerEngine:     at async MessagePort.<anonymous> (/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge-bundle/package/bin/server.cjs:2448:32209)
+[WARN]  ScannerEngine: Failed to parse file [karma/karma-unit.tpl.js] at line 12: Unexpected token (12:7)
+[INFO]  ScannerEngine: 506 source files to be analyzed
+[INFO]  ScannerEngine: Creating TypeScript(6.0.3) program with configuration file /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/tsconfig.json [lib: lib.es2022.d.ts, lib.dom.d.ts, lib.dom.iterable.d.ts]
+[INFO]  ScannerEngine: Analyzing 186 file(s) from tsconfig /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/tsconfig.json (854 total files in program)
+[INFO]  ScannerEngine: No boundary descriptors defined
+[INFO]  ScannerEngine: Analyzing 14 file(s) using merged compiler options [lib: lib.es2023.d.ts, lib.dom.d.ts]
+[INFO]  ScannerEngine: No boundary descriptors defined
+[INFO]  ScannerEngine: 506/506 source files have been analyzed
+[INFO]  ScannerEngine: JasminAstConsumer done
+[INFO]  ScannerEngine: Hit the cache for 0 out of 343
+[INFO]  ScannerEngine: Miss the cache for 343 out of 343: ANALYSIS_MODE_INELIGIBLE [343/343]
+[INFO]  ScannerEngine: Sensor JavaScript/TypeScript/CSS analysis [javascript] (done) | time=42765ms
+[INFO]  ScannerEngine: Sensor IaC Kubernetes Sensor [iac]
+[INFO]  ScannerEngine: There are no files to be analyzed for the Kubernetes language
+[INFO]  ScannerEngine: Sensor IaC Kubernetes Sensor [iac] (done) | time=225ms
+[INFO]  ScannerEngine: Sensor IaC YAML Sensor [iac]
+[INFO]  ScannerEngine: Sensor for language "YAML" is enabled by a feature flag. You can disable it by setting "sonar.yaml.activate" to false.
+[INFO]  ScannerEngine: 1 source file to be analyzed
+[INFO]  ScannerEngine: 1/1 source file has been analyzed
+[INFO]  ScannerEngine: Sensor IaC YAML Sensor [iac] (done) | time=41ms
+[INFO]  ScannerEngine: Sensor IaC JSON Sensor [iac]
+[INFO]  ScannerEngine: Sensor for language "JSON" is enabled by a feature flag. You can disable it by setting "sonar.json.activate" to false.
+[INFO]  ScannerEngine: 7 source files to be analyzed
+[INFO]  ScannerEngine: 7/7 source files have been analyzed
+[INFO]  ScannerEngine: Sensor IaC JSON Sensor [iac] (done) | time=207ms
+[INFO]  ScannerEngine: Sensor EnterpriseTextAndSecretsSensor [textenterprise]
+[INFO]  ScannerEngine: Available processors: 22
+[INFO]  ScannerEngine: Using 22 threads for analysis.
+[INFO]  ScannerEngine: The property "sonar.tests" is not set. To improve the analysis accuracy, we categorize a file as a test file if any of the following is true:
+  * The filename starts with "test"
+  * The filename contains "test." or "tests."
+  * Any directory in the file path is named: "doc", "docs", "test", "tests", "mock" or "mocks"
+  * Any directory in the file path has a name ending in "test" or "tests"
+
+[INFO]  ScannerEngine: Start fetching files for the text and secrets analysis
+[INFO]  ScannerEngine: Using Git CLI to retrieve dirty files
+[INFO]  ScannerEngine: Retrieving language associated files and files included via "sonar.text.inclusions" that are tracked by git
+[INFO]  ScannerEngine: Starting the text and secrets analysis
+[INFO]  ScannerEngine: 540 source files to be analyzed for the text and secrets analysis
+[INFO]  ScannerEngine: 540/540 source files have been analyzed for the text and secrets analysis
+[INFO]  ScannerEngine: Start fetching files for the binary file analysis
+[INFO]  ScannerEngine: There are no files to be analyzed for the binary file analysis
+[INFO]  ScannerEngine: Sensor EnterpriseTextAndSecretsSensor [textenterprise] (done) | time=7490ms
+[INFO]  ScannerEngine: ------------- Run sensors on project
+[INFO]  ScannerEngine: Sensor Deterministic Rule Engine for Groovy [dre]
+[INFO]  ScannerEngine: Extracting bridge from /bridge/bridge-linux-x64.xz
+[INFO]  ScannerEngine: Bridge extracted to /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/.sonartmp/bridge/bridge
+[INFO]  ScannerEngine: Sensor Deterministic Rule Engine for Groovy [dre] (done) | time=1311ms
+[INFO]  ScannerEngine: Sensor Deterministic Rule Engine for Shell [dre]
+[INFO]  ScannerEngine: Sensor Deterministic Rule Engine for Shell [dre] (done) | time=52ms
+[INFO]  ScannerEngine: Sensor JaCoCo Aggregate XML Report Importer [jacoco]
+[INFO]  ScannerEngine: Sensor JaCoCo Aggregate XML Report Importer [jacoco] (done) | time=0ms
+[INFO]  ScannerEngine: Sensor JsSecuritySensorV2 [jasmin]
+[INFO]  ScannerEngine: 199 file(s) will be analysed by SonarJasmin.
+[INFO]  ScannerEngine: Analysis progress:   9% (19/199 files)
+[INFO]  ScannerEngine: Analysis progress:  19% (38/199 files)
+[INFO]  ScannerEngine: Analysis progress:  28% (57/199 files)
+[INFO]  ScannerEngine: Analysis progress:  38% (76/199 files)
+[INFO]  ScannerEngine: Analysis progress:  47% (95/199 files)
+[INFO]  ScannerEngine: Analysis progress:  57% (114/199 files)
+[INFO]  ScannerEngine: Analysis progress:  66% (133/199 files)
+[INFO]  ScannerEngine: Analysis progress:  76% (152/199 files)
+[INFO]  ScannerEngine: Analysis progress:  85% (171/199 files)
+[INFO]  ScannerEngine: Analysis progress:  95% (190/199 files)
+[INFO]  ScannerEngine: Sensor JsSecuritySensorV2 [jasmin] (done) | time=13856ms
+[INFO]  ScannerEngine: Sensor JsArchitectureSensor [architecture]
+[INFO]  ScannerEngine: Found 1 potential Udg file location(s) for "js" in "/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork"
+[INFO]  ScannerEngine: - /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/architecture/js
+[INFO]  ScannerEngine: Architecture analysis is enabled with the following features: legacy, discovery, flaws, smells, deviations, directives
+[INFO]  ScannerEngine: * Protobuf reading starting | memory total=328 | free=137 | used=190 (MB)
+[INFO]  ScannerEngine: * Reading SonarArchitecture UDG data from directory "/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/architecture/js"
+[INFO]  ScannerEngine: * Files successfully loaded: "13" out of "13"
+[INFO]  ScannerEngine: * Purging externals (components not scanned) from graphs
+[INFO]  ScannerEngine: * Purging excluded nodes from graphs
+[INFO]  ScannerEngine: * Protobuf reading complete | memory total=328 | free=125 | used=202 (MB)
+[INFO]  ScannerEngine: * Build architecture.graph.js.file_graph.default_perspective hierarchy graph complete (filtered=false) | memory total=328 | free=119 | used=208 (MB)
+[INFO]  ScannerEngine: * No intended architecture defined or detected, using an empty model
+[INFO]  ScannerEngine: No directives configured
+[INFO]  ScannerEngine: Sensor JsArchitectureSensor [architecture] (done) | time=1381ms
+[INFO]  ScannerEngine: Sensor TsArchitectureSensor [architecture]
+[INFO]  ScannerEngine: Found 1 potential Udg file location(s) for "ts" in "/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork"
+[INFO]  ScannerEngine: - /home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/architecture/ts
+[INFO]  ScannerEngine: Architecture analysis is enabled with the following features: legacy, discovery, flaws, smells, deviations, directives
+[INFO]  ScannerEngine: * Protobuf reading starting | memory total=328 | free=102 | used=225 (MB)
+[INFO]  ScannerEngine: * Reading SonarArchitecture UDG data from directory "/home/ryan/.jenkins/workspace/7.3HD_OnTrack_Pipeline/.scannerwork/architecture/ts"
+[INFO]  ScannerEngine: * Files successfully loaded: "186" out of "186"
+[INFO]  ScannerEngine: * Purging externals (components not scanned) from graphs
+[INFO]  ScannerEngine: * Purging excluded nodes from graphs
+[INFO]  ScannerEngine: * Protobuf reading complete | memory total=328 | free=95 | used=232 (MB)
+[INFO]  ScannerEngine: * Build architecture.graph.ts.file_graph.default_perspective hierarchy graph complete (filtered=false) | memory total=328 | free=78 | used=249 (MB)
+[INFO]  ScannerEngine: * No intended architecture defined or detected, using an empty model
+[INFO]  ScannerEngine: No directives configured
+[INFO]  ScannerEngine: Sensor TsArchitectureSensor [architecture] (done) | time=872ms
+[INFO]  ScannerEngine: Sensor Zero Coverage Sensor
+[INFO]  ScannerEngine: Sensor Zero Coverage Sensor (done) | time=174ms
+[INFO]  ScannerEngine: Sensor Architecture Telemetry [architecture]
+[INFO]  ScannerEngine: Sensor Architecture Telemetry [architecture] (done) | time=2ms
+[INFO]  ScannerEngine: ------------- Gather SCA dependencies on project
+[INFO]  ScannerEngine: Dependency analysis skipped
+[INFO]  ScannerEngine: CPD Executor 212 files had no CPD blocks
+[INFO]  ScannerEngine: CPD Executor Calculating CPD for 294 files
+[INFO]  ScannerEngine: CPD Executor CPD calculation finished (done) | time=220ms
+[INFO]  ScannerEngine: SCM Publisher SCM provider for this project is: git
+[INFO]  ScannerEngine: SCM Publisher 503 source files to be analyzed
+[INFO]  ScannerEngine: SCM Publisher 502/503 source files have been analyzed (done) | time=1081ms
+[WARN]  ScannerEngine: Missing blame information for the following files:
+[WARN]  ScannerEngine:   * package.json
+[WARN]  ScannerEngine: This may lead to missing/broken features in SonarCloud
+[INFO]  ScannerEngine: SCM revision ID 'e4449310d6d70eb551df0d7541c15d9f41ce2669'
+[INFO]  ScannerEngine: Analysis report generated in 644ms, dir size=2 MB
+[INFO]  ScannerEngine: Analysis report compressed in 1365ms, zip size=1 MB
+[INFO]  ScannerEngine: Analysis report uploaded in 1947ms
+[INFO]  ScannerEngine: ANALYSIS SUCCESSFUL, you can find the results at: https://sonarcloud.io/dashboard?id=7.3HD_Pipeline
+[INFO]  ScannerEngine: Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO]  ScannerEngine: More about the report processing at https://sonarcloud.io/api/ce/task?id=AZ6XqqBY59mtvGs_pzGB
+[INFO]  ScannerEngine: ------------- Upload SCA dependency files
+[INFO]  ScannerEngine: Successfully sent architecture data
+[INFO]  ScannerEngine: Sensor cache published successfully
+[INFO]  ScannerEngine: Analysis total time: 1:51.444 s
+[INFO]  ScannerEngine: SonarScanner Engine completed successfully
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Security Scan)
+[Pipeline] echo
+Running Security Analysis...
+[Pipeline] sh
++ npm config set registry https://registry.npmjs.org/
+[Pipeline] sh
++ npm audit --audit-level=moderate
++ echo Vulnerabilities found (see report)
+Vulnerabilities found (see report)
+Post stage
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] echo
+✅ Security scan completed
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] echo
+Deploying to Local Staging Environment...
+[Pipeline] sh
++ docker stop doubtfire-web-staging
+doubtfire-web-staging
+[Pipeline] sh
++ docker rm doubtfire-web-staging
+doubtfire-web-staging
+[Pipeline] sh
++ docker run -d --name doubtfire-web-staging -p 8081:80 --restart unless-stopped doubtfire-web:1.0.60
+acd95a43e32b979bfc0ab97470a475c2a11569d2fab3fd34cf4c82ceb1548d2c
+[Pipeline] echo
+✅ Application successfully deployed to http://localhost:8081
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Release)
+[Pipeline] echo
+Releasing Application...
+[Pipeline] sh
++ git config user.email jenkins@ci.local
++ git config user.name Jenkins CI
++ git tag -a v1.0.60 -m Release 1.0.60
++ git push origin v1.0.60
+To github.com:pascoeryan/7.3HD_Pipeline.git
+ * [new tag]         v1.0.60 -> v1.0.60
+[Pipeline] echo
+✅ Release v1.0.60 completed and tagged
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Create Build Artifact)
+[Pipeline] echo
+Creating artifacts...
+[Pipeline] sh
++ mkdir -p artifact
+[Pipeline] sh
++ cp -r dist artifact/
+[Pipeline] sh
++ timeout 120s docker save -o artifact/doubtfire-web-1.0.60.tar doubtfire-web:1.0.60
+[Pipeline] sh
++ tar -czf build-1.0.60.tar.gz artifact
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Tag Build)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ git config user.email jenkins@ci.local
++ git config user.name Jenkins CI
++ git tag -a v1.0.60 -m CI Build 1.0.60
+fatal: tag 'v1.0.60' already exists
++ true
++ git push origin v1.0.60
+Everything up-to-date
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Archive Artifact)
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Monitoring - Datadog)
+[Pipeline] echo
+Setting up Datadog Monitoring...
+[Pipeline] sh
++ docker stop datadog-agent
+datadog-agent
+[Pipeline] sh
++ docker rm datadog-agent
+datadog-agent
+[Pipeline] sh
++ docker run -d --name datadog-agent --volume /var/run/docker.sock:/var/run/docker.sock:ro --volume /proc/:/host/proc/:ro --volume /sys/fs/cgroup:/host/sys/fs/cgroup:ro -e DD_API_KEY=72aac7b43b34ef2fca96c3951cc90bc0 -e DD_HOSTNAME=doubtfire-staging -e DD_ENV=staging gcr.io/datadoghq/agent:latest
+ca875b1e16524858fbde13805fcddbcc2bfd81a864f8d61d018f01b70956a42e
+[Pipeline] echo
+✅ Datadog Agent started. Application is now being monitored.
+[Pipeline] echo
+View dashboard at: https://app.datadoghq.com
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+✅ BUILD SUCCESS - Version 1.0.60
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
