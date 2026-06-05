@@ -25,7 +25,7 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                echo '🔧 Installing dependencies with pdfjs-dist fix...'
+                echo 'Installing dependencies with pdfjs-dist fix...'
                 sh 'npm install pdfjs-dist@3.11.174 --save-exact --force'
                 sh 'npm ci'
             }
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo '🧪 Running Basic Unit Tests (Karma + Jasmine)...'
+                echo 'Running Basic Unit Tests (Karma + Jasmine)...'
                 
                 // Most stable command for this hybrid project
                 sh 'npm run test -- --watch=false --browsers=ChromeHeadless --code-coverage=false || echo "Some tests had issues"'
