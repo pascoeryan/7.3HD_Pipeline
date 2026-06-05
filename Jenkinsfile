@@ -67,10 +67,11 @@ pipeline {
             steps {
                 echo '🔒 Running Security Analysis...'
 
-                // Quick and safe npm audit with timeout
-                sh 'timeout 20s npm audit --audit-level=moderate > npm-audit-report.txt || echo "npm audit completed (or timed out)"'
+                // NPM Audit - Force official registry
+                sh 'npm config set registry https://registry.npmjs.org/'
+                sh 'npm audit --audit-level=moderate > npm-audit-report.txt || echo "Vulnerabilities found (see report)"'
 
-                // Trivy scan
+                // Trivy Docker Scan - with better error handling
                 sh '''
                     echo "Scanning Docker image with Trivy..."
                     sudo docker run --rm aquasec/trivy image doubtfire-web:${BUILD_VERSION} \
@@ -82,6 +83,9 @@ pipeline {
             post {
                 always {
                     archiveArtifacts artifacts: 'npm-audit-report.txt, trivy-report.txt', fingerprint: true, allowEmptyArchive: true
+                }
+                success {
+                    echo "✅ Security scan completed"
                 }
             }
         }
