@@ -166,6 +166,7 @@ pipeline {
                         --volume /sys/fs/cgroup:/host/sys/fs/cgroup:ro \
                         -e DD_API_KEY=72aac7b43b34ef2fca96c3951cc90bc0 \
                         -e DD_HOSTNAME=doubtfire-staging \
+                        -e DD_ENV=staging \
                         gcr.io/datadoghq/agent:latest
                     '''
 
