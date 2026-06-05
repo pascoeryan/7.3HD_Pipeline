@@ -164,7 +164,7 @@ pipeline {
                         --volume /var/run/docker.sock:/var/run/docker.sock:ro \
                         --volume /proc/:/host/proc/:ro \
                         --volume /sys/fs/cgroup:/host/sys/fs/cgroup:ro \
-                        -e DD_API_KEY=72aac7b43b34ef2fca96c3951cc90bc0 \
+                        -e DD_API_KEY=06e122a1-7d32-4066-9d46-18959df7a9e6 \
                         -e DD_HOSTNAME=doubtfire-staging \
                         -e DD_ENV=staging \
                         gcr.io/datadoghq/agent:latest
