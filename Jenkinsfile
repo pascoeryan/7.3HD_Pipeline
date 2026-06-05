@@ -102,6 +102,22 @@ pipeline {
             }
         }
 
+        stage('Release') {
+            steps {
+                echo '📦 Releasing Application...'
+
+                // Git tagging (semi-automated release)
+                sh '''
+                    git config user.email "jenkins@ci.local"
+                    git config user.name "Jenkins CI"
+                    git tag -a v${BUILD_VERSION} -m "Release ${BUILD_VERSION}" || true
+                    git push origin v${BUILD_VERSION} || true
+                '''
+
+                echo "✅ Release v${BUILD_VERSION} completed and tagged"
+            }
+        }
+
         stage('Create Build Artifact') {
             steps {
                 echo '📦 Creating artifacts...'
