@@ -81,6 +81,27 @@ pipeline {
             }
         }
 
+        stage('Deploy') {
+            steps {
+                echo '🚀 Deploying to Local Staging Environment...'
+
+                // Stop and remove previous container if it exists
+                sh 'docker stop doubtfire-web-staging || true'
+                sh 'docker rm doubtfire-web-staging || true'
+
+                // Deploy the new version
+                sh '''
+                    docker run -d \
+                        --name doubtfire-web-staging \
+                        -p 8081:80 \
+                        --restart unless-stopped \
+                        doubtfire-web:${BUILD_VERSION}
+                '''
+
+                echo "✅ Application successfully deployed to http://localhost:8081"
+            }
+        }
+
         stage('Create Build Artifact') {
             steps {
                 echo '📦 Creating artifacts...'
